@@ -1,24 +1,31 @@
 <script>
 	import "../app.scss";
 	import Cursor from "$lib/cursor/Cursor.svelte";
+	import Navigation from "$lib/navigation/Navigation.svelte";
 </script>
 
-<slot />
-<Cursor />
+<div class="body-container">
+	<slot />
+	<Navigation />
+	<Cursor />
+</div>
 
 <style lang="scss">
+	.body-container {
+		position: relative;
+		min-height: 100vh; //browser fallback
+		min-height: 100dvh;
+		background-color: $main-background;
+	}
+	:global(.page-title) {
+		cursor: default;
+	}
 	:global(h1) {
 		font-family: "Cooper Hewitt";
 		font-weight: 900;
 		text-transform: uppercase;
 		writing-mode: sideways-lr;
 		white-space: nowrap;
-	}
-	:global(.body-wrapper) {
-		position: relative;
-		min-height: 100vh; //browser fallback
-		min-height: 100dvh;
-		background-color: $main-background;
 	}
 	:global(.sr-only) {
 		border: 0 !important;
