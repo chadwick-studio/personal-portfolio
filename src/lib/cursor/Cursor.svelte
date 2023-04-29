@@ -1,24 +1,26 @@
 <script>
-	import { onMount, onDestroy } from "svelte";
 	import { page } from "$app/stores";
 	import gsap from "gsap";
 
 	let circleRadius = 45;
+
 	const initCursor = () => {
 		if (typeof document != "undefined") {
 			const cursor = document.querySelector(".cursor");
+			// Observe hoverables
 			const hoverables = document.querySelectorAll(
 				".hoverable, a, button"
 			);
-			const turbulence =
-				document.querySelector("feTurbulence");
+			const turbulence = document.querySelector(
+				".cursor feTurbulence"
+			);
 			const circle = document.querySelector(".cursor-circle");
 			const durationTime = 0.5;
 
 			document.addEventListener("mousemove", (e) => {
-				cursor.style.top = e.pageY + "px";
-				cursor.style.left = e.pageX + "px";
+				cursor.style.transform = `translate(-50%, -50%) translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
 			});
+
 			hoverables.forEach((hoverable) => {
 				hoverable.addEventListener("mouseover", () => {
 					gsap.to(turbulence, {
@@ -43,13 +45,6 @@
 				});
 
 				hoverable.addEventListener("mouseout", () => {
-					gsap.to(circle, {
-						duration: durationTime,
-						startAt: { attr: { r: 30 } },
-						attr: { r: circleRadius },
-					});
-				});
-				hoverable.addEventListener("click", () => {
 					gsap.to(circle, {
 						duration: durationTime,
 						startAt: { attr: { r: 30 } },
@@ -107,12 +102,15 @@
 		z-index: 999999;
 	}
 	.cursor {
-		top: -100px;
-		left: -100px;
 		position: absolute;
 		fill: #ffd436;
 		filter: url(#filter);
-		transform: translate(-50%, -50%);
 		pointer-events: none;
+		transition: 50ms linear;
+	}
+	@media (hover: none) {
+		.cursor-wrapper {
+			display: none;
+		}
 	}
 </style>
