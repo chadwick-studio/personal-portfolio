@@ -1,9 +1,13 @@
 /* Variables and mixins declared here will be available in all other SCSS files */
+
+//Colors
 $main-background: #ffd436;
-$primary: red;
-$dark-primary: #000;
-$light-primary: blue;
-$primary-text: #000;
-$secondary-text: #111;
 $accent: #9c0087;
 $selection: #3661ff;
+
+//Padding
+$margin: 24px;
+$main-padding-left: $margin;
+$main-padding-right: $margin;
+$main-padding-top: $margin;
+$main-padding-bottom: $margin;

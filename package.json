@@ -19,6 +19,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "gsap": "^3.11.5",
     "stylelint-scss": "^4.6.0"
   }

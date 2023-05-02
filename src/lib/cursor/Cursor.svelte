@@ -7,7 +7,6 @@
 	const initCursor = () => {
 		if (typeof document != "undefined") {
 			const cursor = document.querySelector(".cursor");
-			// Observe hoverables
 			const hoverables = document.querySelectorAll(
 				".hoverable, a, button"
 			);

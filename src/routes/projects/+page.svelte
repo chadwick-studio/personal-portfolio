@@ -1,22 +1,132 @@
-<h2 class="project-type">Professional Work</h2>
-<section class="project">
-	<img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
-	<h3>Amanda Samimi Art</h3>
-</section>
-<section class="project">
-	<img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
-	<h3>HMdb</h3>
-</section>
+<div class="container">
+	<header class="header">
+		<h1 class="title">Projects</h1>
+		<div class="subtitle">
+			<p>
+				enclosed within <br />
+				on display <br />
+				are projects of <br />
+				wonder <br />
+				and novelty <br />
+			</p>
+		</div>
+	</header>
+	<main class="main projects">
+		<div class="projects_type projects_design-develop">
+			<h2 class="projects_type_header">Design + Develop</h2>
+			<section class="project">
+				<img
+					src="/images/amanda-samimi_website.png"
+					alt="Amanda Samimi Art Gallery Home Page"
+				/>
+				<h3 class="project_info">
+					<a
+						target="_blank"
+						href="https://amanda-samimi-art.netlify.app/"
+					>
+						2023 // Amanda Samimi Art //
+						Portfolio
+					</a>
+				</h3>
+			</section>
+			<section class="project">
+				<img
+					src="/images/hmdb_logo.png"
+					alt="Amanda Samimi Art Gallery Home Page"
+				/>
+				<h3 class="project_info">
+					<a
+						target="_blank"
+						href="https://chadwick-studio.github.io/hmdb-navbar/"
+					>
+						2023 // HMdb.org // Logo +
+						Header Redesign // Portfolio
+					</a>
+				</h3>
+			</section>
+		</div>
+		<!-- <div class="projects_type projects_design"> -->
+		<!-- 	<h2 class="projects_type_header">Design</h2> -->
+		<!-- 	<section class="project"> -->
+		<!-- 		<img -->
+		<!-- 			src="/images/hmdb_logo.png" -->
+		<!-- 			alt="Amanda Samimi Art Gallery Home Page" -->
+		<!-- 		/> -->
+		<!-- 		<h3 class="project_info"> -->
+		<!-- 			<button class="project_link"> -->
+		<!-- 				2023 // HMdb.org // Logo + -->
+		<!-- 				Header Redesign -->
+		<!-- 			</button> -->
+		<!-- 		</h3> -->
+		<!-- 	</section> -->
+		<!-- </div> -->
+	</main>
+</div>
 
 <style lang="scss">
-	/* your styles go here */
-	.project-type {
+	// Projects Section
+	.main {
+		padding-inline: 0;
+		--margin: 48px;
+		padding-bottom: calc($main-padding-bottom * 4);
+	}
+	.projects {
+		font-family: "Cooper Hewitt";
 		text-transform: uppercase;
+	}
+	.projects_type {
+		width: 100%;
+		+ .projects_type {
+			margin-top: calc(var(--margin) * 2);
+		}
+	}
+	.project_link {
+		cursor: pointer;
+	}
+	.projects_type_header {
+		font-weight: 700;
 		font-size: 1.5rem;
-		text-align: right;
-		border-bottom: 2px solid black;
+		margin-bottom: calc(var(--margin) * 1.5);
+	}
+	.project {
+		+ .project {
+			margin-top: calc(var(--margin) * 1.5);
+		}
 	}
 	img {
 		display: block;
+		border: 1px solid black;
+		width: 80%;
+		max-width: 800px;
+	}
+	.project_info {
+		font-weight: 500;
+		margin-top: 0.5em;
+	}
+	// Design + Develop Section
+	.projects_design-develop {
+		padding-right: $main-padding-right;
+		.projects_type_header {
+			text-align: right;
+			border-bottom: 4px solid black;
+		}
+		.project {
+			display: flex;
+			flex-direction: column;
+			align-items: end;
+		}
+	}
+	// Design Section
+	.projects_design {
+		padding-left: $main-padding-left;
+		.projects_type_header {
+			text-align: left;
+			border-bottom: 4px solid black;
+		}
+		.project {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+		}
 	}
 </style>
