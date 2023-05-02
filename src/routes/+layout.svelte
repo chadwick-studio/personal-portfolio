@@ -125,7 +125,7 @@
 		white-space: nowrap !important;
 	}
 	@media (min-width: 800px) {
-		:global(:is(.header)) {
+		:global(.header:not(.home)) {
 			border: 0;
 			margin: 0;
 			padding: 0;
