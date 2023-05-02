@@ -183,10 +183,13 @@
 			margin-left: 0.1em;
 		}
 	}
-	.email-form {
-		*:focus-visible {
+	input,
+	textarea {
+		&:focus-visible {
 			outline: 5px solid $selection;
 		}
+	}
+	.email-form {
 		display: grid;
 		grid:
 			"email" auto
