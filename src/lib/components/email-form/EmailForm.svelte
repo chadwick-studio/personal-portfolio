@@ -186,7 +186,7 @@
 	input,
 	textarea {
 		&:focus-visible {
-			outline: 5px solid $selection;
+			outline: 2px solid $selection;
 		}
 	}
 	.email-form {
