@@ -18,28 +18,26 @@
 
 {#key pathname}
 	<div
-		class="page-transition"
+		class="page-transition body_container"
 		in:fade={transitionIn}
 		out:fade={transitionOut}
 	>
-		<div class="body_container">
-			<slot />
-			<Navigation {duration} />
-		</div>
+		<slot />
 	</div>
 {/key}
+<Navigation {duration} />
 <Cursor />
 
 <style lang="scss">
 	:global(body) {
 		background-color: $main-background;
 		overflow-x: hidden;
-		scrollbar-width: thin;
+		scrollbar-width: none;
 		scrollbar-gutter: stable;
 	}
 	.page-transition {
 		overflow-x: hidden;
-		scrollbar-width: thin;
+		scrollbar-width: none;
 		scrollbar-gutter: stable;
 	}
 	.body_container {
@@ -47,9 +45,6 @@
 		min-height: 100vh; //browser fallback
 		min-height: 100dvh;
 		background-color: $main-background;
-		overflow-x: hidden;
-		scrollbar-width: thin;
-		scrollbar-gutter: stable;
 	}
 	:global(.container) {
 		height: 100vh;
@@ -96,7 +91,7 @@
 		padding-inline: $main-padding-left;
 		overflow-y: auto;
 		overflow-x: hidden;
-		scrollbar-width: thin;
+		scrollbar-width: none;
 		scrollbar-gutter: stable;
 	}
 	:global(.accent) {
@@ -143,6 +138,7 @@
 		:global(.main) {
 			margin-top: 0;
 			place-items: center;
+			scroll-width: none;
 		}
 	}
 </style>
