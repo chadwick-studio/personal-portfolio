@@ -34,6 +34,7 @@
 	:global(body) {
 		background-color: $main-background;
 		overflow-x: hidden;
+		scrollbar-width: thin;
 	}
 	.body_container {
 		position: relative;
@@ -48,7 +49,7 @@
 	:global(.header) {
 		display: flex;
 		align-items: end;
-		font-size: 4rem;
+		font-size: clamp(3.5rem, 3.2143rem + 1.4286vw, 4.5rem);
 		border-bottom: 2px solid black;
 		padding-top: $main-padding-top;
 		padding-left: $main-padding-left;
@@ -83,6 +84,7 @@
 		padding-inline: $main-padding-left;
 		overflow-y: scroll;
 		overflow-x: hidden;
+		scrollbar-width: thin;
 	}
 	:global(.accent) {
 		color: $accent;

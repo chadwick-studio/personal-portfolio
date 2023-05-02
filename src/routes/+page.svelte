@@ -19,7 +19,7 @@
 		width: 100%;
 		container: header / size;
 	}
-	@container header (width > 250px) {
+	@container header (min-width: 250px) {
 		.title {
 			font-size: calc(6cqh + 1rem);
 		}
@@ -27,6 +27,7 @@
 	.d {
 		position: relative;
 		&::after {
+			transform: rotate(180deg);
 			content: "eveloper + designer";
 			font-size: 30%;
 			font-weight: 300;
@@ -34,8 +35,8 @@
 			text-transform: uppercase;
 			white-space: nowrap;
 			position: absolute;
-			bottom: 10%;
-			left: 82%;
+			top: 10%;
+			right: 82%;
 			letter-spacing: 3px;
 		}
 	}
