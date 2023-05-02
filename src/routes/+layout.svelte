@@ -33,6 +33,7 @@
 <style lang="scss">
 	:global(body) {
 		background-color: $main-background;
+		overflow-x: hidden;
 	}
 	.body_container {
 		position: relative;
