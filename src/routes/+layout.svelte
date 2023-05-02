@@ -82,7 +82,7 @@
 		padding-top: calc($main-padding-top * 2);
 		padding-bottom: calc($main-padding-bottom * 2);
 		padding-inline: $main-padding-left;
-		overflow-y: scroll;
+		overflow-y: auto;
 		overflow-x: hidden;
 		scrollbar-width: thin;
 	}
