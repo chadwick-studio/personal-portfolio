@@ -35,6 +35,7 @@
 		background-color: $main-background;
 		overflow-x: hidden;
 		scrollbar-width: thin;
+		scrollbar-gutter: stable;
 	}
 	.body_container {
 		position: relative;
@@ -85,6 +86,7 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		scrollbar-width: thin;
+		scrollbar-gutter: stable;
 	}
 	:global(.accent) {
 		color: $accent;
