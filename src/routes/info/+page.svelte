@@ -60,11 +60,6 @@
 <style lang="scss">
 	.description {
 		p {
-			&:first-child::first-letter {
-				float: left;
-				font-size: 60px;
-				padding-right: 4px;
-			}
 			font-family: "Tenderness";
 			max-width: 60ex;
 			+ p {
