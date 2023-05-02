@@ -134,6 +134,10 @@
 			padding-left: $main-padding-left;
 			padding-right: $main-padding-right;
 		}
+		:global(.header:is(.home)) {
+			padding-bottom: $main-padding-bottom;
+			padding-left: $main-padding-left;
+		}
 		:global(.container) {
 			grid-template-columns: 1fr 2fr;
 		}
