@@ -37,11 +37,19 @@
 		scrollbar-width: thin;
 		scrollbar-gutter: stable;
 	}
+	.page-transition {
+		overflow-x: hidden;
+		scrollbar-width: thin;
+		scrollbar-gutter: stable;
+	}
 	.body_container {
 		position: relative;
 		min-height: 100vh; //browser fallback
 		min-height: 100dvh;
 		background-color: $main-background;
+		overflow-x: hidden;
+		scrollbar-width: thin;
+		scrollbar-gutter: stable;
 	}
 	:global(.container) {
 		height: 100vh;
@@ -117,11 +125,11 @@
 		white-space: nowrap !important;
 	}
 	@media (min-width: 800px) {
-		:global(.header) {
-			border-right: 2px solid black;
-			border-bottom: none;
+		:global(:is(.header)) {
+			border: 0;
 			margin: 0;
 			padding: 0;
+			border-right: 2px solid black;
 			padding-bottom: $main-padding-bottom;
 			padding-left: $main-padding-left;
 			padding-right: $main-padding-right;
