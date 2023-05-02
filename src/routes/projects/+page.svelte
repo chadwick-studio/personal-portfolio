@@ -32,7 +32,7 @@
 			<section class="project">
 				<img
 					src="/images/hmdb_logo.png"
-					alt="Amanda Samimi Art Gallery Home Page"
+					alt="Logo for HMdb.org"
 				/>
 				<h3 class="project_info">
 					<a
@@ -128,5 +128,9 @@
 			flex-direction: column;
 			align-items: start;
 		}
+	}
+	a:focus-visible {
+		outline: 1px solid black;
+		padding: 0.2em;
 	}
 </style>

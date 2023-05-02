@@ -70,5 +70,9 @@
 	}
 	a {
 		border-bottom: 1px solid black;
+		&:focus-visible {
+			outline: 1px solid black;
+			padding: 0.2em;
+		}
 	}
 </style>

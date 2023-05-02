@@ -189,14 +189,21 @@
 			</g>
 		</svg>
 	</button>
-	<nav class="menu_navigation" style:--translateX={$menuTween}>
-		<ul id="navigation" class="navigation-list">
+	<nav
+		id="navigation"
+		aria-label="Menu"
+		class="menu_navigation"
+		style:--translateX={$menuTween}
+	>
+		<ul class="navigation-list">
 			{#each routeLinks as link}
 				<li
 					class:active={$page.url.pathname ===
 						link[0]}
 				>
-					<a href={link[0]}>{link[1]}</a>
+					<a href={link[0]} aria-current="page"
+						>{link[1]}</a
+					>
 				</li>
 			{/each}
 		</ul>
@@ -221,8 +228,7 @@
 		right: $main-padding-right;
 		mix-blend-mode: difference;
 		&:focus-visible {
-			outline: 1px solid black;
-			background-color: $accent;
+			outline: 2px solid $main-background;
 		}
 	}
 	.menu-icon_circles {
