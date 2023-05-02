@@ -1,6 +1,7 @@
 <script>
 	import emailjs from "@emailjs/browser";
 
+	let sent = false;
 	function sendEmail(e) {
 		emailjs.sendForm(
 			"service_1z17tcq",
@@ -8,83 +9,96 @@
 			e.target,
 			"C1GbZmigSg8nAoKUh"
 		).then(
-			(result) => {
-				console.log("SUCCESS!", result.text);
+			(res) => {
+				sent = true;
+				console.log("SUCCESS!", res.text);
 			},
-			(error) => {
-				console.log("FAILED...", error.text);
+			(err) => {
+				console.log("FAILED...", err.text);
 			}
 		);
 	}
 </script>
 
 <div class="email-form_container">
-	<form class="email-form" on:submit|preventDefault={sendEmail}>
-		<div class="email">
-			<label for="email">Email</label>
-			<input
-				class="hoverable"
-				type="email"
-				name="email"
-				required
-			/>
-		</div>
-		<div class="name">
-			<label for="name">Name</label>
-			<input
-				class="hoverable"
-				type="text"
-				name="name"
-				required
-			/>
-		</div>
-		<fieldset class="work-type">
-			<legend>Work type</legend>
+	{#if sent === false}
+		<form class="email-form" on:submit|preventDefault={sendEmail}>
+			<div class="email">
+				<label for="email">Email</label>
+				<input
+					class="hoverable"
+					type="email"
+					name="email"
+					required
+				/>
+			</div>
+			<div class="name">
+				<label for="name">Name</label>
+				<input
+					class="hoverable"
+					type="text"
+					name="name"
+					required
+				/>
+			</div>
+			<fieldset class="work-type">
+				<legend>Work type</legend>
 
-			<input
-				class="hoverable"
-				type="checkbox"
-				name="development"
-			/>
-			<label for="development">Development</label>
+				<input
+					class="hoverable"
+					type="checkbox"
+					name="development"
+				/>
+				<label for="development">Development</label>
 
-			<input
-				class="hoverable"
-				type="checkbox"
-				name="design"
-			/>
-			<label for="design">Design</label>
-		</fieldset>
-		<div class="budget">
-			<label for="budget">Budget (USD)</label>
-			<input
-				class="hoverable"
-				type="text"
-				inputmode="numeric"
-				name="budget"
-			/>
-		</div>
-		<div class="publish-date">
-			<label for="publish-date">Desired Completion Date</label
-			>
-			<input
-				class="hoverable"
-				type="date"
-				name="publish-date"
-			/>
-		</div>
-		<div class="message">
-			<label for="message">Additional Comments</label>
-			<textarea class="hoverable" name="message" required />
-		</div>
-		<input class="hoverable" type="submit" value="Send" />
-		<p>* = required</p>
-	</form>
+				<input
+					class="hoverable"
+					type="checkbox"
+					name="design"
+				/>
+				<label for="design">Design</label>
+			</fieldset>
+			<div class="budget">
+				<label for="budget">Budget (USD)</label>
+				<input
+					class="hoverable"
+					type="text"
+					inputmode="numeric"
+					name="budget"
+				/>
+			</div>
+			<div class="publish-date">
+				<label for="publish-date"
+					>Desired Completion Date</label
+				>
+				<input
+					class="hoverable"
+					type="date"
+					name="publish-date"
+				/>
+			</div>
+			<div class="message">
+				<label for="message">Additional Comments</label>
+				<textarea
+					class="hoverable"
+					name="message"
+					required
+				/>
+			</div>
+			<input class="hoverable" type="submit" value="Send" />
+			<p class="required">* = required</p>
+		</form>
+	{:else}
+		<p class="email-sent">Email Sent!</p>
+	{/if}
 </div>
 
 <style lang="scss">
-	p {
+	.required {
 		margin-top: 1em;
+	}
+	.email-sent {
+		font-size: 1.5rem;
 	}
 	.email,
 	.name,
@@ -127,8 +141,12 @@
 		max-width: 30rem;
 		text-transform: uppercase;
 	}
-	input {
+	input,
+	textarea {
 		text-transform: none;
+	}
+	input {
+		width: 100%;
 		&:not([type="date"]) {
 			text-transform: none;
 		}
@@ -139,7 +157,7 @@
 			text-transform: uppercase;
 			grid-area: submit;
 			transform: translateY(0);
-			:active {
+			&:active {
 				transform: translateY(3px);
 			}
 		}
