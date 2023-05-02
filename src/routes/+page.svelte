@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<header class="header">
+<header class="header home">
 	<h1 class="title">
 		Cha<span class="d">d</span>wick
 		<span class="accent">Macmillan</span>
@@ -16,6 +16,9 @@
 		height: 100vh;
 		height: 100dvh;
 		container: header / size;
+	}
+	.title {
+		font-size: clamp(3.25rem, 2.8989rem + 1.7021vw, 3.75rem);
 	}
 	@container header (width > 250px) {
 		.title {

@@ -46,7 +46,7 @@
 		height: 100vh;
 		height: 100dvh;
 	}
-	:global(.header) {
+	:global(.header:not(.home)) {
 		display: flex;
 		align-items: end;
 		font-size: clamp(3.5rem, 3.2143rem + 1.4286vw, 4.5rem);
