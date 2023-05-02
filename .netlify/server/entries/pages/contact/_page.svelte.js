@@ -8,22 +8,22 @@ const css$1 = {
 const EmailForm = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
   return `<div class="email-form_container svelte-br1akk">${`<form class="email-form svelte-br1akk"><div class="email svelte-br1akk"><label for="email" class="svelte-br1akk">Email</label>
-				<input class="hoverable svelte-br1akk" type="email" name="email" required></div>
+				<input id="email" class="hoverable svelte-br1akk" type="email" name="email" required></div>
 			<div class="name svelte-br1akk"><label for="name" class="svelte-br1akk">Name</label>
-				<input class="hoverable svelte-br1akk" type="text" name="name" required></div>
+				<input id="name" class="hoverable svelte-br1akk" type="text" name="name" required></div>
 			<fieldset class="work-type svelte-br1akk"><legend class="svelte-br1akk">Work type</legend>
 
-				<input class="hoverable svelte-br1akk" type="checkbox" name="development">
+				<input id="development" class="hoverable svelte-br1akk" type="checkbox" name="development">
 				<label for="development" class="svelte-br1akk">Development</label>
 
-				<input class="hoverable svelte-br1akk" type="checkbox" name="design">
+				<input id="design" class="hoverable svelte-br1akk" type="checkbox" name="design">
 				<label for="design" class="svelte-br1akk">Design</label></fieldset>
 			<div class="budget svelte-br1akk"><label for="budget" class="svelte-br1akk">Budget (USD)</label>
-				<input class="hoverable svelte-br1akk" type="text" inputmode="numeric" name="budget"></div>
+				<input id="budget" class="hoverable svelte-br1akk" type="text" inputmode="numeric" name="budget"></div>
 			<div class="publish-date svelte-br1akk"><label for="publish-date" class="svelte-br1akk">Desired Completion Date</label>
-				<input class="hoverable svelte-br1akk" type="date" name="publish-date"></div>
+				<input id="publish-date" class="hoverable svelte-br1akk" type="date" name="publish-date"></div>
 			<div class="message svelte-br1akk"><label for="message" class="svelte-br1akk">Additional Comments</label>
-				<textarea class="hoverable svelte-br1akk" name="message" required></textarea></div>
+				<textarea id="message" class="hoverable svelte-br1akk" name="message" required></textarea></div>
 			<input class="hoverable svelte-br1akk" type="submit" value="Send">
 			<p class="required svelte-br1akk">* = required</p></form>`}
 </div>`;

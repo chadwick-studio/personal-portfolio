@@ -26,6 +26,7 @@
 			<div class="email">
 				<label for="email">Email</label>
 				<input
+					id="email"
 					class="hoverable"
 					type="email"
 					name="email"
@@ -35,6 +36,7 @@
 			<div class="name">
 				<label for="name">Name</label>
 				<input
+					id="name"
 					class="hoverable"
 					type="text"
 					name="name"
@@ -45,6 +47,7 @@
 				<legend>Work type</legend>
 
 				<input
+					id="development"
 					class="hoverable"
 					type="checkbox"
 					name="development"
@@ -52,6 +55,7 @@
 				<label for="development">Development</label>
 
 				<input
+					id="design"
 					class="hoverable"
 					type="checkbox"
 					name="design"
@@ -61,6 +65,7 @@
 			<div class="budget">
 				<label for="budget">Budget (USD)</label>
 				<input
+					id="budget"
 					class="hoverable"
 					type="text"
 					inputmode="numeric"
@@ -72,6 +77,7 @@
 					>Desired Completion Date</label
 				>
 				<input
+					id="publish-date"
 					class="hoverable"
 					type="date"
 					name="publish-date"
@@ -80,6 +86,7 @@
 			<div class="message">
 				<label for="message">Additional Comments</label>
 				<textarea
+					id="message"
 					class="hoverable"
 					name="message"
 					required
