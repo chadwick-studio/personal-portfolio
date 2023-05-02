@@ -63,7 +63,8 @@
 	}
 	:global(.title) {
 		font-weight: 900;
-		writing-mode: sideways-lr;
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
 	}
 	:global(.subtitle) {
 		font-weight: 300;
@@ -79,7 +80,8 @@
 		padding-top: calc($main-padding-top * 2);
 		padding-bottom: calc($main-padding-bottom * 2);
 		padding-inline: $main-padding-left;
-		overflow: scroll;
+		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 	:global(.accent) {
 		color: $accent;
