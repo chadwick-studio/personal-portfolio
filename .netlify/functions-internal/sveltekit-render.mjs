@@ -3,10 +3,10 @@ import { init } from '../serverless.js';
 export const handler = init({
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["fonts/cooper_hewitt/CooperHewitt-Bold.woff2","fonts/cooper_hewitt/CooperHewitt-Book.woff2","fonts/cooper_hewitt/CooperHewitt-Heavy.woff2","fonts/cooper_hewitt/CooperHewitt-Light.woff2","fonts/cooper_hewitt/CooperHewitt-Medium.woff2","fonts/cooper_hewitt/CooperHewitt-Semibold.woff2","fonts/cooper_hewitt/CooperHewitt-Thin.woff2","fonts/nacelle/nacelle-light.woff2","fonts/nacelle/nacelle_ultralight.woff2","fonts/tenderness/Tenderness-Regular.woff2","fonts/yard_sale/yardsale.woff2","icons/close.svg","icons/iconmonstr-share-11.svg","icons/menu.svg","images/amanda-samimi_website.png","images/hmdb_logo.png"]),
-	mimeTypes: {".woff2":"font/woff2",".svg":"image/svg+xml",".png":"image/png"},
+	assets: new Set(["about.txt","android-chrome-192x192.png","android-chrome-512x512.png","apple-touch-icon.png","favicon-16x16.png","favicon-32x32.png","favicon.ico","fonts/cooper_hewitt/CooperHewitt-Bold.woff2","fonts/cooper_hewitt/CooperHewitt-Book.woff2","fonts/cooper_hewitt/CooperHewitt-Heavy.woff2","fonts/cooper_hewitt/CooperHewitt-Light.woff2","fonts/cooper_hewitt/CooperHewitt-Medium.woff2","fonts/cooper_hewitt/CooperHewitt-Semibold.woff2","fonts/cooper_hewitt/CooperHewitt-Thin.woff2","fonts/nacelle/nacelle-light.woff2","fonts/nacelle/nacelle_ultralight.woff2","fonts/tenderness/Tenderness-Regular.woff2","fonts/yard_sale/yardsale.woff2","icons/close.svg","icons/iconmonstr-share-11.svg","icons/menu.svg","images/amanda-samimi_website.png","images/hmdb_logo.png","site.webmanifest"]),
+	mimeTypes: {".txt":"text/plain",".png":"image/png",".ico":"image/vnd.microsoft.icon",".woff2":"font/woff2",".svg":"image/svg+xml",".webmanifest":"application/manifest+json"},
 	_: {
-		client: {"start":{"file":"_app/immutable/entry/start.793b9011.js","imports":["_app/immutable/entry/start.793b9011.js","_app/immutable/chunks/index.44555a08.js","_app/immutable/chunks/singletons.a03cb9e1.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.fa6128f9.js","imports":["_app/immutable/entry/app.fa6128f9.js","_app/immutable/chunks/index.44555a08.js"],"stylesheets":[],"fonts":[]}},
+		client: {"start":{"file":"_app/immutable/entry/start.3fd59ba6.js","imports":["_app/immutable/entry/start.3fd59ba6.js","_app/immutable/chunks/index.44555a08.js","_app/immutable/chunks/singletons.92086fe5.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.3f6f0ab0.js","imports":["_app/immutable/entry/app.3f6f0ab0.js","_app/immutable/chunks/index.44555a08.js"],"stylesheets":[],"fonts":[]}},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js'),

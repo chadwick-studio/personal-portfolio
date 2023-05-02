@@ -58,7 +58,7 @@
 
 	:global(.title, .subtitle) {
 		cursor: default;
-		font-family: "Cooper Hewitt";
+		font-family: "Cooper Hewitt", sans-serif;
 		text-transform: uppercase;
 		line-height: 1;
 		white-space: nowrap;
