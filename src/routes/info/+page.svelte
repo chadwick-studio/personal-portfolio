@@ -62,6 +62,7 @@
 		p {
 			font-family: "Tenderness";
 			max-width: 60ex;
+			line-height: 1.5;
 			+ p {
 				text-indent: 1em;
 			}
