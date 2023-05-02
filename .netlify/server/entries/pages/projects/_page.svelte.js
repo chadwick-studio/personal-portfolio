@@ -13,12 +13,12 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 				wonder <br>
 				and novelty <br></p></div></header>
 	<main class="main projects svelte-1cul6s8"><div class="projects_type projects_design-develop svelte-1cul6s8"><h2 class="projects_type_header svelte-1cul6s8">Design + Develop</h2>
-			<section class="project svelte-1cul6s8"><img src="/images/amanda-samimi_website.png" alt="Amanda Samimi Art Gallery Home Page" class="svelte-1cul6s8">
-				<h3 class="project_info svelte-1cul6s8"><a target="_blank" href="https://amanda-samimi-art.netlify.app/" class="svelte-1cul6s8">2023 // Amanda Samimi Art //
+			<section class="project svelte-1cul6s8" aria-labelledby="amanda-samimi-art-title"><img src="/images/amanda-samimi_website.png" alt="Amanda Samimi Art Gallery Home Page" class="svelte-1cul6s8">
+				<h3 id="amanda-samimi-art-title" class="project_info svelte-1cul6s8"><a target="_blank" href="https://amanda-samimi-art.netlify.app/" class="svelte-1cul6s8">2023 // Amanda Samimi Art //
 						Portfolio
 					</a></h3></section>
-			<section class="project svelte-1cul6s8"><img src="/images/hmdb_logo.png" alt="Logo for HMdb.org" class="svelte-1cul6s8">
-				<h3 class="project_info svelte-1cul6s8"><a target="_blank" href="https://chadwick-studio.github.io/hmdb-navbar/" class="svelte-1cul6s8">2023 // HMdb.org // Logo +
+			<section class="project svelte-1cul6s8" aria-labelledby="hmdb-title"><img src="/images/hmdb_logo.png" alt="Logo for HMdb.org" class="svelte-1cul6s8">
+				<h3 id="hmdb-title" class="project_info svelte-1cul6s8"><a target="_blank" href="https://chadwick-studio.github.io/hmdb-navbar/" class="svelte-1cul6s8">2023 // HMdb.org // Logo +
 						Header Redesign // Portfolio
 					</a></h3></section></div>
 		

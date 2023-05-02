@@ -14,12 +14,18 @@
 	<main class="main projects">
 		<div class="projects_type projects_design-develop">
 			<h2 class="projects_type_header">Design + Develop</h2>
-			<section class="project">
+			<section
+				class="project"
+				aria-labelledby="amanda-samimi-art-title"
+			>
 				<img
 					src="/images/amanda-samimi_website.png"
 					alt="Amanda Samimi Art Gallery Home Page"
 				/>
-				<h3 class="project_info">
+				<h3
+					id="amanda-samimi-art-title"
+					class="project_info"
+				>
 					<a
 						target="_blank"
 						href="https://amanda-samimi-art.netlify.app/"
@@ -29,12 +35,12 @@
 					</a>
 				</h3>
 			</section>
-			<section class="project">
+			<section class="project" aria-labelledby="hmdb-title">
 				<img
 					src="/images/hmdb_logo.png"
 					alt="Logo for HMdb.org"
 				/>
-				<h3 class="project_info">
+				<h3 id="hmdb-title" class="project_info">
 					<a
 						target="_blank"
 						href="https://chadwick-studio.github.io/hmdb-navbar/"
