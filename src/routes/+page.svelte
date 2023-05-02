@@ -13,13 +13,11 @@
 	.header {
 		display: flex;
 		align-items: end;
-		position: absolute;
-		min-height: 100vh;
-		min-height: 100dvh;
-		width: 100%;
+		height: 100vh;
+		height: 100dvh;
 		container: header / size;
 	}
-	@container header (min-width: 250px) {
+	@container header (width > 250px) {
 		.title {
 			font-size: calc(6cqh + 1rem);
 		}
