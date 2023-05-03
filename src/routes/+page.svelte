@@ -15,15 +15,10 @@
 		align-items: end;
 		height: 100vh;
 		height: 100dvh;
-		container: header / size;
 	}
 	.title {
-		font-size: clamp(3.25rem, 2.8989rem + 1.7021vw, 3.75rem);
-	}
-	@container header (width > 250px) {
-		.title {
-			font-size: calc(6cqh + 1rem);
-		}
+		font-size: calc(5.5vh + 1rem); // Browser fallback
+		font-size: calc(5.5vh + 1rem);
 	}
 	.d {
 		position: relative;

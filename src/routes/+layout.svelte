@@ -29,16 +29,16 @@
 <Cursor />
 
 <style lang="scss">
+	:global(*) {
+		scrollbar-width: none;
+		scrollbar-gutter: auto;
+	}
 	:global(body) {
 		background-color: $main-background;
 		overflow-x: hidden;
-		scrollbar-width: none;
-		scrollbar-gutter: stable;
 	}
 	.page-transition {
 		overflow-x: hidden;
-		scrollbar-width: none;
-		scrollbar-gutter: stable;
 	}
 	.body_container {
 		position: relative;
@@ -53,7 +53,7 @@
 	:global(.header:not(.home)) {
 		display: flex;
 		align-items: end;
-		font-size: clamp(3.5rem, 3.2143rem + 1.4286vw, 4.5rem);
+		font-size: clamp(2rem, 1.4054rem + 2.8829vw, 4rem);
 		border-bottom: 2px solid black;
 		padding-top: $main-padding-top;
 		padding-left: $main-padding-left;
@@ -72,7 +72,7 @@
 	}
 	:global(.title) {
 		font-weight: 900;
-		writing-mode: vertical-rl;
+		writing-mode: vertical-lr;
 		transform: rotate(180deg);
 	}
 	:global(.subtitle) {
@@ -84,6 +84,8 @@
 	}
 	:global(.container, .main) {
 		display: grid;
+		grid-template-rows: auto 1fr;
+		grid-template-columns: auto;
 	}
 	:global(.main) {
 		padding-top: calc($main-padding-top * 2);
@@ -134,11 +136,12 @@
 		}
 		:global(.container) {
 			grid-template-columns: 1fr 2fr;
+			grid-template-rows: 1fr;
 		}
 		:global(.main) {
 			margin-top: 0;
 			place-items: center;
-			scroll-width: none;
+			scrollbar-width: none;
 		}
 	}
 </style>

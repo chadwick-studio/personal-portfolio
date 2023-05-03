@@ -91,7 +91,7 @@
 	}
 	.projects_type_header {
 		font-weight: 700;
-		font-size: 1.5rem;
+		font-size: clamp(1.125rem, 0.8617rem + 1.2766vw, 1.5rem);
 		margin-bottom: calc(var(--margin) * 1.5);
 	}
 	.project {
@@ -120,6 +120,8 @@
 			display: flex;
 			flex-direction: column;
 			align-items: end;
+			margin-left: $main-padding-left;
+			text-align: right;
 		}
 	}
 	// Design Section
