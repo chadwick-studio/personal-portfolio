@@ -81,7 +81,7 @@
 		font-weight: 300;
 		font-size: 30%;
 		line-height: 1.2;
-		transform: translate3d(-0.15em, 0.04em, 0);
+		transform: translateX(-0.15em);
 		align-self: end;
 	}
 	:global(.container, .main) {
