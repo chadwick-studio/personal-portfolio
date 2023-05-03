@@ -67,21 +67,22 @@
 	}
 	:global(.title, .subtitle) {
 		cursor: default;
+		line-height: 1;
 		font-family: "Cooper Hewitt", sans-serif;
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
 	:global(.title) {
 		font-weight: 900;
-		line-height: 1;
 		writing-mode: vertical-rl;
+		text-orientation: mixed;
 		transform: rotate(-180deg);
 	}
 	:global(.subtitle) {
 		font-weight: 300;
 		font-size: 30%;
-		line-height: 1.2;
-		transform: translateX(-0.15em);
+
+		transform: translate3d(-2%, -12%, 0);
 		align-self: end;
 	}
 	:global(.container, .main) {

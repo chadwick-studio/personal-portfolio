@@ -2,13 +2,7 @@
 	<header class="header">
 		<h1 class="title">Projects</h1>
 		<div class="subtitle">
-			<p>
-				enclosed within <br />
-				on display <br />
-				are projects of <br />
-				wonder <br />
-				and novelty <br />
-			</p>
+			<p>A sampler</p>
 		</div>
 	</header>
 	<main class="main projects">

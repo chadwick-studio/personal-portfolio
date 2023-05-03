@@ -22,37 +22,24 @@
 	}
 	.d {
 		position: relative;
+		display: inline-block;
 		&::after {
-			transform: rotate(180deg);
 			content: "eveloper + designer";
-			font-size: 30%;
+			font-size: 35%;
 			font-weight: 300;
 			writing-mode: horizontal-tb;
+			text-orientation: upright;
 			text-transform: uppercase;
 			white-space: nowrap;
 			position: absolute;
-			top: 13%;
-			right: 94%;
+			transform-origin: center;
+			transform: rotate(180deg);
+			top: 14%;
+			right: 93%;
 			letter-spacing: 3px;
 		}
 	}
 	.accent {
 		color: $accent;
-	}
-
-	.main {
-		display: flex;
-		position: relative;
-		justify-content: end;
-		align-items: center;
-		height: 100vh;
-		height: 100dvh;
-		padding-block: $main-padding-top;
-		padding-inline: $main-padding-left;
-	}
-	@media (min-width: 800px) {
-		.d::after {
-			font-size: 35%;
-		}
 	}
 </style>

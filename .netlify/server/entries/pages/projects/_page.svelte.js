@@ -7,11 +7,7 @@ const css = {
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<div class="container"><header class="header"><h1 class="title">Projects</h1>
-		<div class="subtitle"><p>enclosed within <br>
-				on display <br>
-				are projects of <br>
-				wonder <br>
-				and novelty <br></p></div></header>
+		<div class="subtitle"><p>A sampler</p></div></header>
 	<main class="main projects svelte-1fuh780"><div class="projects_type projects_design-develop svelte-1fuh780"><h2 class="projects_type_header svelte-1fuh780">Design + Develop</h2>
 			<section class="project svelte-1fuh780" aria-labelledby="amanda-samimi-art-title"><img src="/images/amanda-samimi_website.png" alt="Amanda Samimi Art Gallery Home Page" class="svelte-1fuh780">
 				<h3 id="amanda-samimi-art-title" class="project_info svelte-1fuh780"><a target="_blank" href="https://amanda-samimi-art.netlify.app/" class="svelte-1fuh780">2023 // Amanda Samimi Art //
