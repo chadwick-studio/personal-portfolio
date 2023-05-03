@@ -18,7 +18,7 @@
 	}
 	.title {
 		font-size: calc(5.5vh + 1rem); // Browser fallback
-		font-size: calc(5.5vh + 1rem);
+		font-size: calc(5.5dvh + 1rem);
 	}
 	.d {
 		position: relative;
@@ -31,8 +31,8 @@
 			text-transform: uppercase;
 			white-space: nowrap;
 			position: absolute;
-			top: 10%;
-			right: 82%;
+			top: 12%;
+			right: 92%;
 			letter-spacing: 3px;
 		}
 	}

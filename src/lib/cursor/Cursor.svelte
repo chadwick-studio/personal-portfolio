@@ -1,60 +1,61 @@
 <script>
 	import { page } from "$app/stores";
+	import { browser } from "$app/environment";
 	import gsap from "gsap";
 
 	let circleRadius = 45;
 
 	const initCursor = () => {
-		if (typeof document != "undefined") {
-			const cursor = document.querySelector(".cursor");
-			const hoverables = document.querySelectorAll(
-				".hoverable, a, button"
-			);
-			const turbulence = document.querySelector(
-				".cursor feTurbulence"
-			);
-			const circle = document.querySelector(".cursor-circle");
-			const durationTime = 0.5;
+		const cursor = document.querySelector(".cursor");
+		const hoverables = document.querySelectorAll(
+			".hoverable, a, button"
+		);
+		const turbulence = document.querySelector(
+			".cursor feTurbulence"
+		);
+		const circle = document.querySelector(".cursor-circle");
+		const durationTime = 0.5;
 
-			document.addEventListener("mousemove", (e) => {
-				cursor.style.transform = `translate(-50%, -50%) translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
-			});
+		document.addEventListener("mousemove", (e) => {
+			cursor.style.transform = `translate(-50%, -50%) translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
+		});
 
-			hoverables.forEach((hoverable) => {
-				hoverable.addEventListener("mouseover", () => {
-					gsap.to(turbulence, {
-						duration: durationTime,
-						startAt: {
-							attr: {
-								baseFrequency: 0.08,
-							},
+		hoverables.forEach((hoverable) => {
+			hoverable.addEventListener("mouseover", () => {
+				gsap.to(turbulence, {
+					duration: durationTime,
+					startAt: {
+						attr: {
+							baseFrequency: 0.08,
 						},
-						attr: { baseFrequency: 0 },
-					});
-
-					gsap.to(circle, {
-						duration: durationTime,
-						startAt: {
-							attr: {
-								r: circleRadius,
-							},
-						},
-						attr: { r: 30 },
-					});
+					},
+					attr: { baseFrequency: 0 },
 				});
 
-				hoverable.addEventListener("mouseout", () => {
-					gsap.to(circle, {
-						duration: durationTime,
-						startAt: { attr: { r: 30 } },
-						attr: { r: circleRadius },
-					});
+				gsap.to(circle, {
+					duration: durationTime,
+					startAt: {
+						attr: {
+							r: circleRadius,
+						},
+					},
+					attr: { r: 30 },
 				});
 			});
-		}
+
+			hoverable.addEventListener("mouseout", () => {
+				gsap.to(circle, {
+					duration: durationTime,
+					startAt: { attr: { r: 30 } },
+					attr: { r: circleRadius },
+				});
+			});
+		});
 	};
 	page.subscribe(() => {
-		initCursor();
+		if (browser) {
+			initCursor();
+		}
 	});
 </script>
 

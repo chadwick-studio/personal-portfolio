@@ -1,6 +1,5 @@
 import { c as create_ssr_component, a as assign, n as now, l as loop, i as identity, b as subscribe, d as add_attribute, e as add_styles, f as each, g as escape, v as validate_component } from "../../chunks/index2.js";
 import { p as page } from "../../chunks/stores.js";
-import gsap from "gsap";
 import { w as writable } from "../../chunks/index.js";
 const app = "";
 const Cursor_svelte_svelte_type_style_lang = "";
@@ -8,43 +7,8 @@ const css$2 = {
   code: ".cursor-wrapper.svelte-1qehv6q{position:fixed;top:0;left:0;width:100%;height:100%;mix-blend-mode:difference;pointer-events:none;isolation:isolate;z-index:999999}.cursor.svelte-1qehv6q{position:absolute;fill:#ffd436;filter:url(#filter);pointer-events:none;transition:50ms linear}@media(hover: none){.cursor-wrapper.svelte-1qehv6q{display:none}}",
   map: null
 };
-let circleRadius = 45;
 const Cursor = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const initCursor = () => {
-    if (typeof document != "undefined") {
-      const cursor = document.querySelector(".cursor");
-      const hoverables = document.querySelectorAll(".hoverable, a, button");
-      const turbulence = document.querySelector(".cursor feTurbulence");
-      const circle = document.querySelector(".cursor-circle");
-      const durationTime = 0.5;
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.transform = `translate(-50%, -50%) translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
-      });
-      hoverables.forEach((hoverable) => {
-        hoverable.addEventListener("mouseover", () => {
-          gsap.to(turbulence, {
-            duration: durationTime,
-            startAt: { attr: { baseFrequency: 0.08 } },
-            attr: { baseFrequency: 0 }
-          });
-          gsap.to(circle, {
-            duration: durationTime,
-            startAt: { attr: { r: circleRadius } },
-            attr: { r: 30 }
-          });
-        });
-        hoverable.addEventListener("mouseout", () => {
-          gsap.to(circle, {
-            duration: durationTime,
-            startAt: { attr: { r: 30 } },
-            attr: { r: circleRadius }
-          });
-        });
-      });
-    }
-  };
   page.subscribe(() => {
-    initCursor();
   });
   $$result.css.add(css$2);
   return `<div class="cursor-wrapper svelte-1qehv6q"><svg class="cursor svelte-1qehv6q" width="30" height="30" viewBox="0 0 100 100"><defs><filter id="filter" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox"><feTurbulence type="fractalNoise" baseFrequency="0" numOctaves="8" result="warp"></feTurbulence><feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp"></feDisplacementMap></filter></defs><circle class="cursor-circle" cx="50" cy="50" r="45"></circle></svg>
@@ -184,7 +148,7 @@ const Navigation = create_ssr_component(($$result, $$props, $$bindings, slots) =
 });
 const _layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: '*{scrollbar-width:none;scrollbar-gutter:auto}body{background-color:#ffd436;overflow-x:hidden}.page-transition.svelte-7kkp0r{overflow-x:hidden}.body_container.svelte-7kkp0r{position:relative;min-height:100vh;min-height:100dvh;background-color:#ffd436}.container{height:100vh;height:100dvh}.header:not(.home){display:flex;align-items:end;font-size:clamp(2rem, 1.4054rem + 2.8829vw, 4rem);border-bottom:2px solid black;padding-top:24px;padding-left:24px;padding-bottom:24px}.header:is(.home){padding-bottom:24px;padding-left:24px}.title, .subtitle{cursor:default;font-family:"Cooper Hewitt", sans-serif;text-transform:uppercase;line-height:1;white-space:nowrap}.title{font-weight:900;writing-mode:vertical-lr;transform:rotate(180deg)}.subtitle{font-weight:300;font-size:30%;line-height:1.2;transform:translate3d(-0.35em, 0.05em, 0);align-self:end}.container, .main{display:grid;grid-template-rows:auto 1fr;grid-template-columns:auto}.main{padding-top:48px;padding-bottom:48px;padding-inline:24px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;scrollbar-gutter:stable}.accent{color:#9c0087}a[href^="https"]::after{content:"";display:inline-block;aspect-ratio:1;width:1em;margin-left:0.25em;background-repeat:no-repeat;background-position:bottom;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMSAyNCAyMyI+PHBhdGggZD0iTTIxIDEzdjEwaC0yMXYtMTloMTJ2MmgtMTB2MTVoMTd2LThoMnptMy0xMmgtMTAuOTg4bDQuMDM1IDQtNi45NzcgNy4wNyAyLjgyOCAyLjgyOCA2Ljk3Ny03LjA3IDQuMTI1IDQuMTcydi0xMXoiLz48L3N2Zz4=");position:relative;top:0.1em}.sr-only{border:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;-webkit-clip-path:inset(50%) !important;clip-path:inset(50%) !important;height:1px !important;margin:-1px !important;overflow:hidden !important;padding:0 !important;position:absolute !important;width:1px !important;white-space:nowrap !important}@media(min-width: 800px){.header:not(.home){border:0;margin:0;padding:0;border-right:2px solid black;padding-bottom:24px;padding-left:24px;padding-right:24px}.container{grid-template-columns:1fr 2fr;grid-template-rows:1fr}.main{margin-top:0;place-items:center;scrollbar-width:none}}',
+  code: '*{scrollbar-width:none}*::-webkit-scrollbar{display:none}body{background-color:#ffd436;overflow-x:hidden}.page-transition.svelte-dkx3ey{overflow-x:hidden}.body_container.svelte-dkx3ey{position:relative;min-height:100vh;min-height:100dvh;background-color:#ffd436}.container{height:100vh;height:100dvh}.header:not(.home){display:flex;align-items:end;font-size:clamp(2rem, 1.4054rem + 2.8829vw, 4rem);border-bottom:2px solid black;padding-top:24px;padding-left:24px;padding-bottom:24px}.header:is(.home){padding-bottom:24px;padding-left:24px}.title, .subtitle{cursor:default;font-family:"Cooper Hewitt", sans-serif;text-transform:uppercase;white-space:nowrap}.title{font-weight:900;line-height:1;writing-mode:vertical-rl;transform:rotate(-180deg)}.subtitle{font-weight:300;font-size:30%;line-height:1.2;transform:translate3d(-0.15em, 0.04em, 0);align-self:end}.container, .main{display:grid;grid-template-rows:auto 1fr;grid-template-columns:auto}.main{padding-top:48px;padding-bottom:48px;padding-inline:24px;overflow-y:auto;overflow-x:hidden}.accent{color:#9c0087}a[href^="https"]::after{content:"";display:inline-block;aspect-ratio:1;width:1em;margin-left:0.25em;background-repeat:no-repeat;background-position:bottom;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMSAyNCAyMyI+PHBhdGggZD0iTTIxIDEzdjEwaC0yMXYtMTloMTJ2MmgtMTB2MTVoMTd2LThoMnptMy0xMmgtMTAuOTg4bDQuMDM1IDQtNi45NzcgNy4wNyAyLjgyOCAyLjgyOCA2Ljk3Ny03LjA3IDQuMTI1IDQuMTcydi0xMXoiLz48L3N2Zz4=");position:relative;top:0.1em}.sr-only{border:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;-webkit-clip-path:inset(50%) !important;clip-path:inset(50%) !important;height:1px !important;margin:-1px !important;overflow:hidden !important;padding:0 !important;position:absolute !important;width:1px !important;white-space:nowrap !important}@media(min-width: 800px){.header:not(.home){border:0;margin:0;padding:0;border-right:2px solid black;padding-bottom:24px;padding-left:24px;padding-right:24px}.container{grid-template-columns:1fr 2fr;grid-template-rows:1fr}.main{margin-top:0;place-items:center}}',
   map: null
 };
 const duration = 300;
@@ -193,7 +157,7 @@ const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css);
-  return `<div class="page-transition body_container svelte-7kkp0r">${slots.default ? slots.default({}) : ``}</div>
+  return `<div class="page-transition body_container svelte-dkx3ey">${slots.default ? slots.default({}) : ``}</div>
 ${validate_component(Navigation, "Navigation").$$render($$result, { duration }, {}, {})}
 ${validate_component(Cursor, "Cursor").$$render($$result, {}, {}, {})}`;
 });

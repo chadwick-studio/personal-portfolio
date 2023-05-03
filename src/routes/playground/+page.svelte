@@ -1,9 +1,9 @@
-<div class="container">
+<div class="playground_container">
 	<h1>under construction :)</h1>
 </div>
 
 <style>
-	.container {
+	.playground_container {
 		display: grid;
 		place-items: center;
 		height: 100vh;

@@ -31,7 +31,9 @@
 <style lang="scss">
 	:global(*) {
 		scrollbar-width: none;
-		scrollbar-gutter: auto;
+	}
+	:global(*::-webkit-scrollbar) {
+		display: none;
 	}
 	:global(body) {
 		background-color: $main-background;
@@ -47,7 +49,7 @@
 		background-color: $main-background;
 	}
 	:global(.container) {
-		height: 100vh;
+		height: 100vh; //browser fallback
 		height: 100dvh;
 	}
 	:global(.header:not(.home)) {
@@ -67,19 +69,19 @@
 		cursor: default;
 		font-family: "Cooper Hewitt", sans-serif;
 		text-transform: uppercase;
-		line-height: 1;
 		white-space: nowrap;
 	}
 	:global(.title) {
 		font-weight: 900;
-		writing-mode: vertical-lr;
-		transform: rotate(180deg);
+		line-height: 1;
+		writing-mode: vertical-rl;
+		transform: rotate(-180deg);
 	}
 	:global(.subtitle) {
 		font-weight: 300;
 		font-size: 30%;
 		line-height: 1.2;
-		transform: translate3d(-0.35em, 0.05em, 0);
+		transform: translate3d(-0.15em, 0.04em, 0);
 		align-self: end;
 	}
 	:global(.container, .main) {
@@ -93,8 +95,6 @@
 		padding-inline: $main-padding-left;
 		overflow-y: auto;
 		overflow-x: hidden;
-		scrollbar-width: none;
-		scrollbar-gutter: stable;
 	}
 	:global(.accent) {
 		color: $accent;
@@ -141,7 +141,6 @@
 		:global(.main) {
 			margin-top: 0;
 			place-items: center;
-			scrollbar-width: none;
 		}
 	}
 </style>
