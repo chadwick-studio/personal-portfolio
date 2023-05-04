@@ -81,7 +81,7 @@
 				required
 			/>
 		</div>
-		<input class="hoverable" type="submit" value="Send" />
+		<button class="hoverable" type="submit">Send</button>
 		<p class="required">* = required</p>
 	</form>
 </div>
@@ -89,9 +89,6 @@
 <style lang="scss">
 	.required {
 		margin-top: 1em;
-	}
-	.email-res {
-		font-size: 1.5rem;
 	}
 	.email,
 	.name,
@@ -138,25 +135,26 @@
 	textarea {
 		text-transform: none;
 	}
+	button {
+		font-weight: 600;
+		margin-top: var(--margin);
+		text-align: center;
+		text-transform: uppercase;
+		grid-area: submit;
+		transform: translateY(0);
+		&:active {
+			transform: translateY(3px);
+		}
+		&:disabled {
+			display: none;
+		}
+	}
 	input {
 		width: 100%;
 		&:not([type="date"]) {
 			text-transform: none;
 		}
-		&[type="submit"] {
-			font-weight: 600;
-			margin-top: var(--margin);
-			text-align: center;
-			text-transform: uppercase;
-			grid-area: submit;
-			transform: translateY(0);
-			&:active {
-				transform: translateY(3px);
-			}
-			&:disabled {
-				display: none;
-			}
-		}
+
 		&[type="checkbox"] {
 			display: grid;
 			place-items: center;
@@ -180,7 +178,8 @@
 		}
 	}
 	input,
-	textarea {
+	textarea,
+	button {
 		&:focus-visible {
 			outline: 2px solid $selection;
 		}
