@@ -1,110 +1,96 @@
-<script>
-	import emailjs from "@emailjs/browser";
-
-	let sent = false;
-	function sendEmail(e) {
-		emailjs.sendForm(
-			"service_1z17tcq",
-			"template_attira4",
-			e.target,
-			"C1GbZmigSg8nAoKUh"
-		).then(
-			(res) => {
-				sent = true;
-				console.log("SUCCESS!", res.text);
-			},
-			(err) => {
-				console.log("FAILED...", err.text);
-			}
-		);
-	}
-</script>
-
 <div class="email-form_container">
-	{#if sent === false}
-		<form class="email-form" on:submit|preventDefault={sendEmail}>
-			<div class="email">
-				<label for="email">Email</label>
-				<input
-					id="email"
-					class="hoverable"
-					type="email"
-					name="email"
-					required
-				/>
-			</div>
-			<div class="name">
-				<label for="name">Name</label>
-				<input
-					id="name"
-					class="hoverable"
-					type="text"
-					name="name"
-					required
-				/>
-			</div>
-			<fieldset class="work-type">
-				<legend>Work type</legend>
+	<form
+		name="contact"
+		method="POST"
+		netlify-honeypot="bot-field"
+		data-netlify="true"
+		class="email-form"
+	>
+		<div class="email-form_name">
+			<input
+				type="hidden"
+				name="form-name"
+				value="email-form_name"
+			/>
+		</div>
+		<div class="email">
+			<label for="email">Email</label>
+			<input
+				id="email"
+				class="hoverable"
+				type="email"
+				name="email"
+				required
+			/>
+		</div>
+		<div class="name">
+			<label for="name">Name</label>
+			<input
+				id="name"
+				class="hoverable"
+				type="text"
+				name="name"
+				required
+			/>
+		</div>
+		<fieldset class="work-type">
+			<legend>Work type</legend>
 
-				<input
-					id="development"
-					class="hoverable"
-					type="checkbox"
-					name="development"
-				/>
-				<label for="development">Development</label>
+			<input
+				id="development"
+				class="hoverable"
+				type="checkbox"
+				name="development"
+			/>
+			<label for="development">Development</label>
 
-				<input
-					id="design"
-					class="hoverable"
-					type="checkbox"
-					name="design"
-				/>
-				<label for="design">Design</label>
-			</fieldset>
-			<div class="budget">
-				<label for="budget">Budget (USD)</label>
-				<input
-					id="budget"
-					class="hoverable"
-					type="text"
-					inputmode="numeric"
-					name="budget"
-				/>
-			</div>
-			<div class="publish-date">
-				<label for="publish-date"
-					>Desired Completion Date</label
-				>
-				<input
-					id="publish-date"
-					class="hoverable"
-					type="date"
-					name="publish-date"
-				/>
-			</div>
-			<div class="message">
-				<label for="message">Additional Comments</label>
-				<textarea
-					id="message"
-					class="hoverable"
-					name="message"
-					required
-				/>
-			</div>
-			<input class="hoverable" type="submit" value="Send" />
-			<p class="required">* = required</p>
-		</form>
-	{:else}
-		<p class="email-sent">Email Sent!</p>
-	{/if}
+			<input
+				id="design"
+				class="hoverable"
+				type="checkbox"
+				name="design"
+			/>
+			<label for="design">Design</label>
+		</fieldset>
+		<div class="budget">
+			<label for="budget">Budget (USD)</label>
+			<input
+				id="budget"
+				class="hoverable"
+				type="text"
+				inputmode="numeric"
+				name="budget"
+			/>
+		</div>
+		<div class="publish-date">
+			<label for="publish-date">Desired Completion Date</label
+			>
+			<input
+				id="publish-date"
+				class="hoverable"
+				type="date"
+				name="publish-date"
+			/>
+		</div>
+		<div class="message">
+			<label for="message">Additional Comments</label>
+			<textarea
+				id="message"
+				class="hoverable"
+				name="message"
+				required
+			/>
+		</div>
+		<input class="hoverable" type="submit" value="Send" />
+		<p class="required">* = required</p>
+	</form>
 </div>
 
 <style lang="scss">
 	.required {
 		margin-top: 1em;
 	}
-	.email-sent {
+	.email-res {
 		font-size: 1.5rem;
 	}
 	.email,
@@ -166,6 +152,9 @@
 			transform: translateY(0);
 			&:active {
 				transform: translateY(3px);
+			}
+			&:disabled {
+				display: none;
 			}
 		}
 		&[type="checkbox"] {
