@@ -1,17 +1,13 @@
 <div class="email-form_container">
 	<form
+		class="email-form"
 		name="contact"
 		method="POST"
+		netlify
 		netlify-honeypot="bot-field"
-		data-netlify="true"
-		class="email-form"
 	>
 		<div class="email-form_name">
-			<input
-				type="hidden"
-				name="form-name"
-				value="email-form_name"
-			/>
+			<input type="hidden" name="form-name" value="contact" />
 		</div>
 		<div class="email">
 			<label for="email">Email</label>
@@ -136,6 +132,7 @@
 		text-transform: none;
 	}
 	button {
+		width: 100%;
 		font-weight: 600;
 		margin-top: var(--margin);
 		text-align: center;
@@ -144,9 +141,6 @@
 		transform: translateY(0);
 		&:active {
 			transform: translateY(3px);
-		}
-		&:disabled {
-			display: none;
 		}
 	}
 	input {
@@ -195,7 +189,8 @@
 			"message" auto
 			"submit" auto / 1fr;
 		input,
-		textarea {
+		textarea,
+		button {
 			border: 2px solid black;
 			padding: 0.5em;
 			max-width: 30rem;
