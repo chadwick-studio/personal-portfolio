@@ -1,66 +1,66 @@
 <script>
 	import { page } from "$app/stores";
 	import { browser } from "$app/environment";
-	import gsap from "gsap";
+	import { tweened } from "svelte/motion";
+	import { writable } from "svelte/store";
+	import { throttle } from "./throttle.js";
 
-	let circleRadius = 45;
+	// SVG Circle Variable Binds
+	let r = 24;
+	let cx = r;
+	let cy = r;
+	let viewBox = r * 2;
+	let baseFrequency = writable(0);
 
-	const initCursor = () => {
-		const cursor = document.querySelector(".cursor");
+	const rSize = tweened(r, { duration: 500 });
+	//Calc cursor coords
+	const coords = { x: -200, y: -200 };
+	let { x, y } = coords;
+	const getCursorCoords = (e) => {
+		x = e.clientX;
+		y = e.clientY;
+	};
+
+	//Throttle mouseover function
+	const throttleCursor = throttle(getCursorCoords, 10);
+
+	//SVG Animation Function
+	const handleCursorAnimation = () => {
 		const hoverables = document.querySelectorAll(
 			".hoverable, a, button"
 		);
-		const turbulence = document.querySelector(
-			".cursor feTurbulence"
-		);
-		const circle = document.querySelector(".cursor-circle");
-		const durationTime = 0.5;
-
-		document.addEventListener("mousemove", (e) => {
-			cursor.style.transform = `translate(-50%, -50%) translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
-		});
-
 		hoverables.forEach((hoverable) => {
 			hoverable.addEventListener("mouseover", () => {
-				gsap.to(turbulence, {
-					duration: durationTime,
-					startAt: {
-						attr: {
-							baseFrequency: 0.08,
-						},
-					},
-					attr: { baseFrequency: 0 },
-				});
-
-				gsap.to(circle, {
-					duration: durationTime,
-					startAt: {
-						attr: {
-							r: circleRadius,
-						},
-					},
-					attr: { r: 30 },
-				});
+				baseFrequency = tweened(0.2, { duration: 500 });
+				baseFrequency.set(0);
+				rSize.set(r / 2);
 			});
-
-			hoverable.addEventListener("mouseout", () => {
-				gsap.to(circle, {
-					duration: durationTime,
-					startAt: { attr: { r: 30 } },
-					attr: { r: circleRadius },
-				});
+			hoverable.addEventListener("mouseleave", () => {
+				rSize.set(r);
 			});
 		});
 	};
-	page.subscribe(() => {
+	//Update Cursor in browser
+	const updateCursor = () => {
 		if (browser) {
-			initCursor();
+			handleCursorAnimation();
 		}
-	});
+	};
+
+	//Update available links when page changes
+	$: $page, updateCursor();
 </script>
 
+<svelte:document on:mousemove={throttleCursor} />
 <div class="cursor-wrapper">
-	<svg class="cursor" width="30" height="30" viewBox="0 0 100 100">
+	<svg
+		class="cursor"
+		width={r}
+		height={r}
+		viewBox="0 0 {viewBox} {viewBox}"
+		style:--xCoords={x}
+		style:--yCoords={y}
+	>
 		<defs>
 			<filter
 				id="filter"
@@ -72,8 +72,8 @@
 			>
 				<feTurbulence
 					type="fractalNoise"
-					baseFrequency="0"
-					numOctaves="8"
+					baseFrequency={$baseFrequency}
+					numOctaves="3"
 					result="warp"
 				/>
 				<feDisplacementMap
@@ -85,7 +85,7 @@
 				/>
 			</filter>
 		</defs>
-		<circle class="cursor-circle" cx="50" cy="50" r="45" />
+		<circle class="cursor-circle" {cx} {cy} r={$rSize} />
 	</svg>
 </div>
 
@@ -106,7 +106,12 @@
 		fill: #ffd436;
 		filter: url(#filter);
 		pointer-events: none;
-		transition: 50ms linear;
+		transform: translate(-50%, -50%)
+			translate3d(
+				calc(var(--xCoords) * 1px),
+				calc(var(--yCoords) * 1px),
+				0px
+			);
 	}
 	@media (hover: none) {
 		.cursor-wrapper {

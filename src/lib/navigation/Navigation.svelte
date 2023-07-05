@@ -220,6 +220,9 @@
 		svg {
 			display: block;
 		}
+		svg {
+			pointer-events: none;
+		}
 		aspect-ratio: 1;
 		width: 3rem;
 		position: fixed;
