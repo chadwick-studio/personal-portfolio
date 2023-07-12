@@ -136,9 +136,6 @@
 </div>
 
 <style lang="scss">
-	* {
-		outline: 1px solid red;
-	}
 	.content {
 		height: 100vh;
 		font-family: "Poppins";
