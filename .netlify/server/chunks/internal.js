@@ -109,7 +109,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width" />\n    <meta\n      name="description"\n      content="Chadwick Macmillan, Web Designer and Developer Portfolio."\n    />\n    <title>Chadwick Macmillan | Web Designer + Developer</title>\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width" />\n    <meta\n      name="description"\n      content="Chadwick Macmillan, Web Designer and Developer Portfolio."\n    />\n    <link\n      rel="apple-touch-icon"\n      sizes="180x180"\n      href="' + assets2 + '/favicon/apple-touch-icon.png"\n    />\n    <link\n      rel="icon"\n      type="image/png"\n      sizes="32x32"\n      href="' + assets2 + '/favicon/favicon-32x32.png"\n    />\n    <link\n      rel="icon"\n      type="image/png"\n      sizes="16x16"\n      href="' + assets2 + '/favicon/favicon-16x16.png"\n    />\n    <link rel="manifest" href="' + assets2 + '/favicon/site.webmanifest" />\n    <title>Chadwick Macmillan | Web Designer + Developer</title>\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -171,7 +171,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "j9gvbx"
+  version_hash: "darpw2"
 };
 function get_hooks() {
   return {};

@@ -9,10 +9,10 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set(["fonts/Pilowlava/Pilowlava-Regular.woff2","icons/iconmonstr-share-11.svg","images/amanda-samimi-website.png","images/ette-review-refactor.png","images/hmdb-logo.png"]),
-	mimeTypes: {".woff2":"font/woff2",".svg":"image/svg+xml",".png":"image/png"},
+	assets: new Set(["favicon/about.txt","favicon/android-chrome-192x192.png","favicon/android-chrome-512x512.png","favicon/apple-touch-icon.png","favicon/favicon-16x16.png","favicon/favicon-32x32.png","favicon/favicon.ico","favicon/site.webmanifest","fonts/Pilowlava/Pilowlava-Regular.woff2","icons/iconmonstr-share-11.svg","images/amanda-samimi-website.png","images/ette-review-refactor.png","images/hmdb-logo.png"]),
+	mimeTypes: {".txt":"text/plain",".png":"image/png",".ico":"image/vnd.microsoft.icon",".webmanifest":"application/manifest+json",".woff2":"font/woff2",".svg":"image/svg+xml"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.07882515.js","app":"_app/immutable/entry/app.42c31467.js","imports":["_app/immutable/entry/start.07882515.js","_app/immutable/chunks/index.d4dab233.js","_app/immutable/chunks/singletons.5aaa7f18.js","_app/immutable/chunks/paths.fea6cf17.js","_app/immutable/entry/app.42c31467.js","_app/immutable/chunks/index.d4dab233.js"],"stylesheets":[],"fonts":[]},
+		client: {"start":"_app/immutable/entry/start.a397a318.js","app":"_app/immutable/entry/app.aabd4c7f.js","imports":["_app/immutable/entry/start.a397a318.js","_app/immutable/chunks/index.d4dab233.js","_app/immutable/chunks/singletons.1b84feb8.js","_app/immutable/chunks/paths.d2888d7e.js","_app/immutable/entry/app.aabd4c7f.js","_app/immutable/chunks/index.d4dab233.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
 			__memo(() => import('../server/nodes/0.js')),
 			__memo(() => import('../server/nodes/1.js')),
