@@ -8,11 +8,11 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<div class="content svelte-1sqcbm3"><header class="header svelte-1sqcbm3"><h1 class="svelte-1sqcbm3">Contact</h1>
 		<p class="svelte-1sqcbm3">Let&#39;s create a website!</p></header>
-	<main class="main svelte-1sqcbm3"><form class="contact-form svelte-1sqcbm3" name="contact" method="POST" netlify netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact" class="svelte-xc25p6 svelte-1sqcbm3">
+	<main class="main svelte-1sqcbm3"><form class="contact-form svelte-1sqcbm3" name="contact" method="post" netlify netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact" class="svelte-1sqcbm3">
 			<label for="name" class="svelte-1sqcbm3">Name *
-				<input id="name" type="text" name="name" required="" class="svelte-1sqcbm3"></label>
+				<input id="name" type="text" name="name" required class="svelte-1sqcbm3"></label>
 			<label for="email" class="svelte-1sqcbm3">Email *
-				<input id="email" type="email" name="email" required="" class="svelte-1sqcbm3"></label>
+				<input id="email" type="email" name="email" required class="svelte-1sqcbm3"></label>
 			<fieldset class="svelte-1sqcbm3"><legend>What type of services do you need? *
 				</legend>
 				<div class="inputs svelte-1sqcbm3"><label for="development" class="svelte-1sqcbm3"><input id="development" type="checkbox" name="services" value="development" class="svelte-1sqcbm3">
@@ -42,7 +42,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 			<label for="publish-date" class="svelte-1sqcbm3">Desired Completion Date (optional)
 				<input id="publish-date" type="date" name="publish-date" class="svelte-1sqcbm3"></label>
 			<label for="message" class="svelte-1sqcbm3">Leave a message! *
-				<textarea id="message" name="message" rows="10" class="svelte-1sqcbm3"></textarea></label>
+				<textarea id="message" name="message" rows="10" required class="svelte-1sqcbm3"></textarea></label>
 			<button type="submit" class="svelte-1sqcbm3">Send</button>
 			<p class="svelte-1sqcbm3">* = required</p></form></main>
 </div>`;

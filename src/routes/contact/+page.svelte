@@ -7,23 +7,18 @@
 		<form
 			class="contact-form"
 			name="contact"
-			method="POST"
+			method="post"
 			netlify
 			netlify-honeypot="bot-field"
 		>
-			<input
-				type="hidden"
-				name="form-name"
-				value="contact"
-				class="svelte-xc25p6"
-			/>
+			<input type="hidden" name="form-name" value="contact" />
 			<label for="name">
 				Name *
 				<input
 					id="name"
 					type="text"
 					name="name"
-					required=""
+					required
 				/>
 			</label>
 			<label for="email">
@@ -32,7 +27,7 @@
 					id="email"
 					type="email"
 					name="email"
-					required=""
+					required
 				/>
 			</label>
 			<fieldset>
@@ -127,6 +122,7 @@
 					id="message"
 					name="message"
 					rows="10"
+					required
 				/>
 			</label>
 			<button type="submit">Send</button>
