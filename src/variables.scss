@@ -1,13 +1,29 @@
 /* Variables and mixins declared here will be available in all other SCSS files */
+:root {
+  --main-background: #cf92ff;
+  --primary: #fff;
+  --secondary: #9bff00;
+  --accent: #000;
 
-//Colors
-$main-background: #ffd436;
-$accent: #9c0087;
-$selection: #3661ff;
+  /* font sizes */
+  --fs-000: 0.75rem;
+  --fs-100: 1rem;
+  --fs-200: 1.333rem;
+  --fs-300: 1.777rem;
+  --fs-400: 2.369rem;
+  --fs-500: 3.157rem;
+  --fs-600: 4.209rem;
+  --fs-700: 5.61rem;
+  --fs-800: 7.478rem;
 
-//Padding
-$margin: 24px;
-$main-padding-left: $margin;
-$main-padding-right: $margin;
-$main-padding-top: $margin;
-$main-padding-bottom: $margin;
+  /* font weights */
+  --fw-100: 100;
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+}

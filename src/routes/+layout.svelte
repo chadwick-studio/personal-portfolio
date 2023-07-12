@@ -1,147 +1,31 @@
 <script>
 	import "../app.scss";
-	import Cursor from "$lib/cursor/Cursor.svelte";
-	import Navigation from "$lib/navigation/Navigation.svelte";
-
-	$: ({ pathname } = data); // pathname = data.pathname
-	import { fade } from "svelte/transition";
-	import { cubicIn, cubicOut } from "svelte/easing";
-
-	export let data;
-
-	const duration = 300;
-	const delay = duration + 200;
-
-	const transitionIn = { easing: cubicOut, duration, delay };
-	const transitionOut = { easing: cubicIn, duration };
+	import Nav from "$components/Nav.svelte";
+	import Cursor from "$components/Cursor.svelte";
 </script>
 
-{#key pathname}
-	<div
-		class="page-transition body_container"
-		in:fade={transitionIn}
-		out:fade={transitionOut}
-	>
-		<slot />
-	</div>
-{/key}
-<Navigation {duration} />
+<div class="page-layout">
+	<Nav />
+	<slot />
+</div>
 <Cursor />
 
 <style lang="scss">
-	:global(*) {
-		scrollbar-width: none;
+	.page-layout {
+		display: grid;
+		grid-template: 1fr / 3rem 1fr;
+		height: 100vh;
+		position: relative;
+		z-index: 1;
+		isolation: isolate;
+		overflow: hidden;
 	}
-	:global(*::-webkit-scrollbar) {
-		display: none;
+	@media (max-width: 767px) {
+		.page-layout {
+			grid-template: 3rem 1fr / 1fr;
+		}
 	}
 	:global(body) {
-		background-color: $main-background;
-		overflow-x: hidden;
-	}
-	.page-transition {
-		overflow-x: hidden;
-	}
-	.body_container {
-		position: relative;
-		min-height: 100vh; //browser fallback
-		min-height: 100dvh;
-		background-color: $main-background;
-	}
-	:global(.container) {
-		height: 100vh; //browser fallback
-		height: 100dvh;
-	}
-	:global(.header:not(.home)) {
-		display: flex;
-		align-items: end;
-		font-size: clamp(2rem, 1.4054rem + 2.8829vw, 4rem);
-		border-bottom: 2px solid black;
-		padding-top: $main-padding-top;
-		padding-left: $main-padding-left;
-		padding-bottom: $main-padding-bottom;
-	}
-	:global(.header:is(.home)) {
-		padding-bottom: $main-padding-bottom;
-		padding-left: $main-padding-left;
-	}
-	:global(.title, .subtitle) {
-		cursor: default;
-		line-height: 1;
-		font-family: "Cooper Hewitt", sans-serif;
-		text-transform: uppercase;
-		white-space: nowrap;
-	}
-	:global(.title) {
-		font-weight: 900;
-		writing-mode: vertical-rl;
-		text-orientation: mixed;
-		transform: rotate(-180deg);
-	}
-	:global(.subtitle) {
-		font-weight: 300;
-		font-size: 30%;
-
-		transform: translate3d(-2%, -12%, 0);
-		align-self: end;
-	}
-	:global(.container, .main) {
-		display: grid;
-		grid-template-rows: auto 1fr;
-		grid-template-columns: auto;
-	}
-	:global(.main) {
-		padding-top: calc($main-padding-top * 2);
-		padding-bottom: calc($main-padding-bottom * 2);
-		padding-inline: $main-padding-left;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	:global(.accent) {
-		color: $accent;
-	}
-	:global(a[href^="https"]::after) {
-		content: "";
-		display: inline-block;
-		aspect-ratio: 1;
-		width: 1em;
-		margin-left: 0.25em;
-		background-repeat: no-repeat;
-		background-position: bottom;
-		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMSAyNCAyMyI+PHBhdGggZD0iTTIxIDEzdjEwaC0yMXYtMTloMTJ2MmgtMTB2MTVoMTd2LThoMnptMy0xMmgtMTAuOTg4bDQuMDM1IDQtNi45NzcgNy4wNyAyLjgyOCAyLjgyOCA2Ljk3Ny03LjA3IDQuMTI1IDQuMTcydi0xMXoiLz48L3N2Zz4=");
-		position: relative;
-		top: 0.1em;
-	}
-	:global(.sr-only) {
-		border: 0 !important;
-		clip: rect(1px, 1px, 1px, 1px) !important;
-		-webkit-clip-path: inset(50%) !important;
-		clip-path: inset(50%) !important;
-		height: 1px !important;
-		margin: -1px !important;
-		overflow: hidden !important;
-		padding: 0 !important;
-		position: absolute !important;
-		width: 1px !important;
-		white-space: nowrap !important;
-	}
-	@media (min-width: 800px) {
-		:global(.header:not(.home)) {
-			border: 0;
-			margin: 0;
-			padding: 0;
-			border-right: 2px solid black;
-			padding-bottom: $main-padding-bottom;
-			padding-left: $main-padding-left;
-			padding-right: $main-padding-right;
-		}
-		:global(.container) {
-			grid-template-columns: 1fr 2fr;
-			grid-template-rows: 1fr;
-		}
-		:global(.main) {
-			margin-top: 0;
-			place-items: center;
-		}
+		background-color: var(--main-background);
 	}
 </style>

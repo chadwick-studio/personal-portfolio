@@ -34,8 +34,13 @@ menu {
   list-style: none;
 }
 
+svg {
+  display: block;
+}
+
 /* For images to not be able to exceed their container */
 img {
+  display: block;
   max-inline-size: 100%;
   max-block-size: 100%;
 }

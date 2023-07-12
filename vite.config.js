@@ -3,7 +3,9 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [sveltekit()],
-
+  ssr: {
+    noExternal: ["three", "troika-three-text"],
+  },
   css: {
     preprocessorOptions: {
       scss: {

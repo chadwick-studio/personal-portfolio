@@ -1,10 +1,10 @@
-<div class="container">
+<div class="content">
 	<header class="header">
-		<h1 class="title">Info</h1>
-		<p class="subtitle">Production Information</p>
+		<h1>About</h1>
+		<p>Who is Chadwick?</p>
 	</header>
 	<main class="main">
-		<div class="description">
+		<section>
 			<p>
 				I am a web designer and developer based in NYC
 				who uses both minimalist and maximalist
@@ -12,6 +12,7 @@
 				It is my job to redefine what is possible for
 				front-end design.
 			</p>
+
 			<p>
 				Responsive web design and accessibility are very
 				important to me. A website can look edgy or
@@ -23,21 +24,19 @@
 				for user experience and interface, a website can
 				look great at any size.
 			</p>
+
 			<p>
 				For accessibility, I use semantic HTML, screen
 				reader classes, as well as ARIA technology to
 				make sure that any elements are readable for
 				screen readers and keyboard users. I also check
-				my colors with <a
-					href="https://webaim.org/resources/contrastchecker/"
-					>WebAIM's contrast checker</a
-				>, have an option for reduced animations, and
-				more to make sure that my website is viewable
-				for everyone. If in doubt, I check the
-				<a href="https://www.w3.org/WAI/"
-					>Web Accessibility Initiative</a
-				>.
+				my colors with WebAIM's contrast checker, have
+				an option for reduced animations, and more to
+				make sure that my website is viewable for
+				everyone. If in doubt, I check the Web
+				Accessibility Initiative.
 			</p>
+
 			<p>
 				I use Svelte (JavaScript framework) and Sanity
 				Content Management System to create the
@@ -49,30 +48,74 @@
 				of these tools, I construct novel web
 				experiences.
 			</p>
-			<p>
-				Let's create a fun website! You can contact me
-				via the contact link in the navigation bar.
-			</p>
-		</div>
+		</section>
+		<section>
+			<a href="/contact">Get in touch</a>
+		</section>
 	</main>
 </div>
 
 <style lang="scss">
-	.description {
-		p {
-			font-family: "Tenderness";
-			max-width: 60ex;
-			line-height: 1.5;
-			+ p {
-				text-indent: 1em;
-			}
+	.content {
+		height: 100vh;
+		font-family: "Poppins";
+		display: grid;
+		grid-template-rows: auto 1fr;
+	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		gap: 0.75rem;
+		padding: 32px;
+		border-bottom: 8px solid black;
+		text-transform: uppercase;
+
+		> h1 {
+			font-family: "Pilowlava";
+			font-size: var(--fs-400);
+		}
+		> p {
+			border: 1px solid black;
+			padding: 1rem;
+			line-height: 1;
+			width: fit-content;
 		}
 	}
-	a {
-		border-bottom: 1px solid black;
-		&:focus-visible {
-			outline: 1px solid black;
-			padding: 0.2em;
+	@media (max-width: 677px) {
+		.header {
+			flex-direction: column;
 		}
+	}
+	.main {
+		padding-block: 32px;
+		padding-inline: 32px;
+		overflow-y: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+		gap: 2rem;
+	}
+	@media (max-width: 767px) {
+		.main {
+			overflow-y: visible;
+		}
+	}
+	section {
+		border: 1px solid black;
+		padding: 1rem;
+		width: fit-content;
+		> p + p {
+			margin-top: 1rem;
+		}
+	}
+	p {
+		line-height: 1.5;
+		max-width: 60ch;
+	}
+	a[href="/contact"]:is(:hover, :focus-visible) {
+		text-decoration-line: underline;
 	}
 </style>
+
