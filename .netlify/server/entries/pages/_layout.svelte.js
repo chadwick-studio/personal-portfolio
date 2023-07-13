@@ -44,12 +44,12 @@ const Cursor = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const _layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--main-background:#cf92ff;--primary:#fff;--secondary:#9bff00;--accent:#000;--fs-000:0.75rem;--fs-100:1rem;--fs-200:1.333rem;--fs-300:1.777rem;--fs-400:2.369rem;--fs-500:3.157rem;--fs-600:4.209rem;--fs-700:5.61rem;--fs-800:7.478rem;--fw-100:100;--fw-200:200;--fw-300:300;--fw-400:400;--fw-500:500;--fw-600:600;--fw-700:700;--fw-800:800;--fw-900:900}.page-layout.svelte-7gbpvl{display:grid;grid-template:1fr/3rem 1fr;height:100svh;position:relative;z-index:1;isolation:isolate;overflow:hidden}@media(width <= 768px){.page-layout.svelte-7gbpvl{grid-template:3rem 1fr/1fr}}body{background-color:var(--main-background)}",
+  code: ":root{--main-background:#cf92ff;--primary:#fff;--secondary:#9bff00;--accent:#000;--fs-000:0.75rem;--fs-100:1rem;--fs-200:1.333rem;--fs-300:1.777rem;--fs-400:2.369rem;--fs-500:3.157rem;--fs-600:4.209rem;--fs-700:5.61rem;--fs-800:7.478rem;--fw-100:100;--fw-200:200;--fw-300:300;--fw-400:400;--fw-500:500;--fw-600:600;--fw-700:700;--fw-800:800;--fw-900:900}.page-layout.svelte-tvebxw{display:grid;grid-template:1fr/3rem 1fr;height:100svh;position:relative;z-index:1;isolation:isolate;overflow:hidden}@media(max-width: 767px){.page-layout.svelte-tvebxw{grid-template:3rem 1fr/1fr}}body{background-color:var(--main-background)}",
   map: null
 };
 const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="page-layout svelte-7gbpvl">${validate_component(Nav, "Nav").$$render($$result, {}, {}, {})}
+  return `<div class="page-layout svelte-tvebxw">${validate_component(Nav, "Nav").$$render($$result, {}, {}, {})}
 	${slots.default ? slots.default({}) : ``}</div>
 ${validate_component(Cursor, "Cursor").$$render($$result, {}, {}, {})}`;
 });

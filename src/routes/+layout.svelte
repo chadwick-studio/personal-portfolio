@@ -20,7 +20,7 @@
 		isolation: isolate;
 		overflow: hidden;
 	}
-	@media (width <= 768px) {
+	@media (max-width: 767px) {
 		.page-layout {
 			grid-template: 3rem 1fr / 1fr;
 		}
