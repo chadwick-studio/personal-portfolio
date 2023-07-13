@@ -105,6 +105,7 @@
 	@media (max-width: 767px) {
 		.main {
 			overflow-y: visible;
+			flex-wrap: wrap;
 		}
 	}
 	section {

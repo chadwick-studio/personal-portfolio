@@ -206,7 +206,7 @@
 		display: flex;
 		gap: 1rem;
 	}
-	@media (max-width: 500px) {
+	@media (max-width: 560px) {
 		.inputs {
 			flex-direction: column;
 			gap: 0;
