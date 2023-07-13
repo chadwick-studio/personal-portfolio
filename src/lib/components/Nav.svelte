@@ -36,6 +36,7 @@
 						link.pathname
 							? "page"
 							: false}
+						on:click={() => toggleNav()}
 					>
 						{link.name}
 					</a>
@@ -115,20 +116,20 @@
 		align-items: center;
 		gap: 4px;
 		circle {
-			transition: cx 50ms ease-out;
+			transition: cx 350ms ease-out;
 		}
 		svg {
-			transition: rotate 200ms ease-out;
+			transition: rotate 300ms ease-out;
 		}
 		&[aria-expanded="true"] {
 			svg {
 				rotate: 360deg;
-				transition: rotate 300ms ease-out;
+				transition: rotate 400ms ease-out;
 			}
 			:is(.left-circles, .right-circles) {
 				:is(circle:first-child, circle:last-child) {
 					cx: 16;
-					transition: cx 100ms ease-out;
+					transition: cx 250ms ease-out;
 				}
 			}
 		}
@@ -214,7 +215,6 @@
 	}
 	@media (max-width: 767px) {
 		.nav-wrapper {
-			transform: translate3d(0, -100%, -1px);
 			pointer-events: none;
 			background-color: var(--main-background);
 			position: absolute;
@@ -223,9 +223,11 @@
 			width: 100%;
 			border-bottom: 2px solid black;
 			padding: 16px;
+			transform: scaleY(0);
+			transform-origin: top;
 			transition: transform 300ms ease-out;
 			&[data-visible="true"] {
-				transform: translate3d(0, 0, -1px);
+				transform: scaleY(1);
 				transition: transform 300ms ease-out;
 				pointer-events: auto;
 			}
