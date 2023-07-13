@@ -122,7 +122,7 @@
 		font-family: "Poppins";
 		display: grid;
 		grid-template-rows: auto 1fr;
-		height: 100vh;
+		height: 100svh;
 	}
 	@media (max-width: 904px) {
 		.content {
@@ -182,6 +182,7 @@
 			overflow-y: hidden;
 			border-left: none;
 			border-top: 2px solid black;
+			overscroll-behavior: none;
 		}
 	}
 	.project-list {

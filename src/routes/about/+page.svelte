@@ -57,12 +57,17 @@
 
 <style lang="scss">
 	.content {
-		height: 100vh;
 		font-family: "Poppins";
 		display: grid;
 		grid-template-rows: auto 1fr;
+		height: 100svh;
 	}
-
+	@media (max-width: 677px) {
+		.content {
+			overflow-y: auto;
+			height: auto;
+		}
+	}
 	.header {
 		display: flex;
 		justify-content: space-between;
@@ -118,4 +123,3 @@
 		text-decoration-line: underline;
 	}
 </style>
-

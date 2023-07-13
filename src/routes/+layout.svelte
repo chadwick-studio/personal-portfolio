@@ -14,13 +14,13 @@
 	.page-layout {
 		display: grid;
 		grid-template: 1fr / 3rem 1fr;
-		height: 100vh;
+		height: 100svh;
 		position: relative;
 		z-index: 1;
 		isolation: isolate;
 		overflow: hidden;
 	}
-	@media (max-width: 767px) {
+	@media (width <= 768px) {
 		.page-layout {
 			grid-template: 3rem 1fr / 1fr;
 		}

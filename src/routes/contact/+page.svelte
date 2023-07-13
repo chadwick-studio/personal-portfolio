@@ -133,10 +133,16 @@
 
 <style lang="scss">
 	.content {
-		height: 100vh;
+		height: 100svh;
 		font-family: "Poppins";
 		display: grid;
 		grid-template-rows: auto 1fr;
+	}
+	@media (max-width: 677px) {
+		.content {
+			overflow-y: auto;
+			height: auto;
+		}
 	}
 
 	.header {
