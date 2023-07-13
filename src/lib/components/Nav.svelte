@@ -218,7 +218,7 @@
 			pointer-events: none;
 			background-color: var(--main-background);
 			position: absolute;
-			top: calc(100% + 2px);
+			top: calc(100% + 1px);
 			left: 0;
 			width: 100%;
 			border-bottom: 2px solid black;
