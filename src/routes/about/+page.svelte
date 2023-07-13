@@ -22,6 +22,16 @@
 		</section>
 		<section>
 			<a href="/contact">Get in touch</a>
+			<svg
+				version="1.1"
+				viewBox="0 0 1080 444"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="m820 405 38.4 38.4 222-222-222-222-38.4 38.4 156 156h-976v54.3h976z"
+					fill-rule="evenodd"
+				/>
+			</svg>
 		</section>
 	</main>
 </div>
@@ -84,6 +94,15 @@
 		width: fit-content;
 		> p + p {
 			margin-top: 1rem;
+		}
+		&:last-child {
+			svg {
+				aspect-ratio: 270 / 111;
+				width: 2em;
+			}
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
 		}
 	}
 	p {
