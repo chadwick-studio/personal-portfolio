@@ -50,7 +50,7 @@
 			role: "Development",
 			year: "2023",
 			description:
-				"Refactor of CSS code for -ette literary magazine. Organized code into modules, and utilized new CSS features like grid and logical properties to make layouts easier to work with.",
+				"Refactor of CSS code for -ette literary magazine. Organization of code into modules, and utilization of new CSS features like grid and logical properties to facilitate layout production.",
 			src: "/images/ette-review-refactor.png",
 			alt: "Test",
 		},
@@ -66,7 +66,7 @@
 <div class="content">
 	<header class="header">
 		<h1>Portfolio</h1>
-		<p>Checkout the projects I've done!</p>
+		<p>Checkout his projects!</p>
 	</header>
 	<main class="main">
 		<div class="current-project">
@@ -122,7 +122,9 @@
 		font-family: "Poppins";
 		display: grid;
 		grid-template-rows: auto 1fr;
-		height: 100svh;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: auto;
 	}
 	@media (max-width: 904px) {
 		.content {
