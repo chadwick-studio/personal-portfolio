@@ -1,28 +1,62 @@
 <script>
 	import Nav from "$components/Nav.svelte";
+	import { fly } from "svelte/transition";
+	import { onMount } from "svelte";
+	let isLoaded = false;
+	let titleTransitionDuration = 500;
+	let subtitleTransitionDuration = 250;
+	onMount(() => {
+		isLoaded = true;
+	});
 </script>
 
 <div class="content">
 	<header class="header">
-		<h1>Chadwick Macmillan</h1>
-		<p>Web Designer + Developer</p>
+		{#if isLoaded}
+			<h1
+				in:fly={{
+					duration: titleTransitionDuration,
+					y: 12,
+				}}
+			>
+				Chadwick Macmillan
+			</h1>
+			<p
+				in:fly={{
+					duration: subtitleTransitionDuration,
+					y: 12,
+					delay: titleTransitionDuration,
+				}}
+			>
+				Web Designer + Developer
+			</p>
+		{/if}
 	</header>
 	<main class="main">
-		<section class="hero">
-			<p>
-				I build fun, creative, and engaging web
-				experiences.
-			</p>
-			<p>
-				Inquiring about a project? Send me an email at <a
-					href="mailto:chadwick@chadwick.studio"
-					>chadwick@chadwick.studio</a
-				> or view my contact page :-)
-			</p>
-		</section>
-		<section>
-			<p />
-		</section>
+		{#if isLoaded}
+			<section
+				in:fly={{
+					duration: 250,
+					y: 12,
+					delay:
+						subtitleTransitionDuration +
+						titleTransitionDuration,
+				}}
+				class="hero"
+			>
+				<p>
+					I build fun, creative, and engaging web
+					experiences.
+				</p>
+				<p>
+					Inquiring about a project? Send me an
+					email at <a
+						href="mailto:chadwick@chadwick.studio"
+						>chadwick@chadwick.studio</a
+					> or view my contact page :-)
+				</p>
+			</section>
+		{/if}
 	</main>
 </div>
 

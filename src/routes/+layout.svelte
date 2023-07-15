@@ -2,6 +2,7 @@
 	import "../app.scss";
 	import Nav from "$components/Nav.svelte";
 	import Cursor from "$components/Cursor.svelte";
+	import { onMount } from "svelte";
 </script>
 
 <div class="page-layout">

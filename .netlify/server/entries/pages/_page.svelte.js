@@ -6,14 +6,8 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="content svelte-tambbv"><header class="header svelte-tambbv"><h1 class="svelte-tambbv">Chadwick Macmillan</h1>
-		<p class="svelte-tambbv">Web Designer + Developer</p></header>
-	<main class="main svelte-tambbv"><section class="hero svelte-tambbv"><p class="svelte-tambbv">I build fun, creative, and engaging web
-				experiences.
-			</p>
-			<p class="svelte-tambbv">Inquiring about a project? Send me an email at <a href="mailto:chadwick@chadwick.studio" class="svelte-tambbv">chadwick@chadwick.studio</a> or view my contact page :-)
-			</p></section>
-		<section><p></p></section></main>
+  return `<div class="content svelte-tambbv"><header class="header svelte-tambbv">${``}</header>
+	<main class="main svelte-tambbv">${``}</main>
 </div>`;
 });
 export {

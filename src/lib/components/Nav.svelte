@@ -1,5 +1,7 @@
 <script>
 	import { page } from "$app/stores";
+	import { onMount } from "svelte";
+	import { fly, slide, fade } from "svelte/transition";
 	const links = [
 		{ name: "Contact", pathname: "/contact" },
 		{ name: "About", pathname: "/about" },
@@ -17,6 +19,10 @@
 			navText = "Menu";
 		}
 	};
+	let isLoaded = false;
+	onMount(() => {
+		isLoaded = true;
+	});
 </script>
 
 <header class="nav">
@@ -27,20 +33,31 @@
 		aria-label="Main"
 	>
 		<ul class="nav-links">
-			{#each links as link}
-				<li>
-					<a
-						href={link.pathname}
-						aria-current={$page.url
-							.pathname ===
-						link.pathname
-							? "page"
-							: false}
-						on:click={() => toggleNav()}
+			{#each links as link, i}
+				{#if isLoaded}
+					<li
+						transition:fly={{
+							duration: 250,
+							delay:
+								1250 +
+								-(i * 200),
+							x: -12,
+						}}
 					>
-						{link.name}
-					</a>
-				</li>
+						<a
+							href={link.pathname}
+							aria-current={$page.url
+								.pathname ===
+							link.pathname
+								? "page"
+								: false}
+							on:click={() =>
+								toggleNav()}
+						>
+							{link.name}
+						</a>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	</nav>
@@ -78,9 +95,17 @@
 			</g>
 		</svg>
 	</button>
-	<a href="/" aria-current={$page.url.pathname === "/" ? "page" : false}>
-		<h1>Chadwick Macmillan</h1>
-	</a>
+	{#if isLoaded}
+		<a
+			transition:fly={{ duration: 500, x: 12, delay: 250 }}
+			href="/"
+			aria-current={$page.url.pathname === "/"
+				? "page"
+				: false}
+		>
+			<h1>Chadwick Macmillan</h1>
+		</a>
+	{/if}
 </header>
 
 <style lang="scss">

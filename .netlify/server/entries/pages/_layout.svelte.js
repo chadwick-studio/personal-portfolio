@@ -6,8 +6,8 @@ const css$2 = {
   map: null
 };
 const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $page, $$unsubscribe_page;
-  $$unsubscribe_page = subscribe(page, (value) => $page = value);
+  let $$unsubscribe_page;
+  $$unsubscribe_page = subscribe(page, (value) => value);
   const links = [
     { name: "Contact", pathname: "/contact" },
     { name: "About", pathname: "/about" },
@@ -20,13 +20,12 @@ const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let navText = "Menu";
   $$result.css.add(css$2);
   $$unsubscribe_page();
-  return `<header class="nav svelte-1321xzy"><nav id="nav" class="nav-wrapper svelte-1321xzy"${add_attribute("data-visible", isNavVisible, 0)} aria-label="Main"><ul class="nav-links svelte-1321xzy">${each(links, (link) => {
-    return `<li class="svelte-1321xzy"><a${add_attribute("href", link.pathname, 0)}${add_attribute("aria-current", $page.url.pathname === link.pathname ? "page" : false, 0)} class="svelte-1321xzy">${escape(link.name)}</a>
-				</li>`;
+  return `<header class="nav svelte-1321xzy"><nav id="nav" class="nav-wrapper svelte-1321xzy"${add_attribute("data-visible", isNavVisible, 0)} aria-label="Main"><ul class="nav-links svelte-1321xzy">${each(links, (link, i) => {
+    return `${``}`;
   })}</ul></nav>
 	<button class="nav-toggle svelte-1321xzy"${add_attribute("aria-expanded", isNavVisible, 0)} aria-controls="nav"><span class="svelte-1321xzy">${escape(navText)}</span>
 		<svg version="1.1" width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="nav-icon svelte-1321xzy" title="Menu Icon"><g class="svelte-1321xzy"><g class="left-circles svelte-1321xzy"><circle cx="6" cy="6" r="4" class="svelte-1321xzy"></circle><circle cx="6" cy="16" r="4" class="svelte-1321xzy"></circle><circle cx="6" cy="26" r="4" class="svelte-1321xzy"></circle></g><g class="center-circles svelte-1321xzy"><circle cx="16" cy="6" r="4" class="svelte-1321xzy"></circle><circle cx="16" cy="26" r="4" class="svelte-1321xzy"></circle></g><g class="right-circles svelte-1321xzy"><circle cx="26" cy="6" r="4" class="svelte-1321xzy"></circle><circle cx="26" cy="16" r="4" class="svelte-1321xzy"></circle><circle cx="26" cy="26" r="4" class="svelte-1321xzy"></circle></g></g></svg></button>
-	<a href="/"${add_attribute("aria-current", $page.url.pathname === "/" ? "page" : false, 0)} class="svelte-1321xzy"><h1 class="svelte-1321xzy">Chadwick Macmillan</h1></a>
+	${``}
 </header>`;
 });
 const Cursor_svelte_svelte_type_style_lang = "";
