@@ -300,7 +300,7 @@
 	}
 	img {
 		width: 100%;
-		height: 300px;
+		min-height: 300px;
 		overflow: hidden;
 		object-fit: cover;
 		border: 1px solid black;
