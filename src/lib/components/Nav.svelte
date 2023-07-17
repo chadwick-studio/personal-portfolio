@@ -39,7 +39,7 @@
 						transition:fly={{
 							duration: 250,
 							delay:
-								1750 +
+								1350 +
 								-(i * 200),
 							x: -12,
 						}}

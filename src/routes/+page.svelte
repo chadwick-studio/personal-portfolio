@@ -3,7 +3,7 @@
 	import { fly } from "svelte/transition";
 	import { onMount } from "svelte";
 	let isLoaded = false;
-	let initialDelay = 500;
+	let initialDelay = 100;
 	let subtitleTransitionDelay = initialDelay + titleTransitionDuration;
 	let titleTransitionDuration = 500;
 	let subtitleTransitionDuration = 250;
