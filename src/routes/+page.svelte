@@ -4,8 +4,8 @@
 	import { onMount } from "svelte";
 	let isLoaded = false;
 	let initialDelay = 100;
-	let subtitleTransitionDelay = initialDelay + titleTransitionDuration;
 	let titleTransitionDuration = 500;
+	let subtitleTransitionDelay = initialDelay + titleTransitionDuration;
 	let subtitleTransitionDuration = 250;
 	onMount(() => {
 		isLoaded = true;
