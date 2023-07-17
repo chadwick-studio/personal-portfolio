@@ -3,6 +3,8 @@
 	import { fly } from "svelte/transition";
 	import { onMount } from "svelte";
 	let isLoaded = false;
+	let initialDelay = 500;
+	let subtitleTransitionDelay = initialDelay + titleTransitionDuration;
 	let titleTransitionDuration = 500;
 	let subtitleTransitionDuration = 250;
 	onMount(() => {
@@ -17,6 +19,7 @@
 				in:fly={{
 					duration: titleTransitionDuration,
 					y: 12,
+					delay: initialDelay,
 				}}
 			>
 				Chadwick Macmillan
@@ -25,7 +28,7 @@
 				in:fly={{
 					duration: subtitleTransitionDuration,
 					y: 12,
-					delay: titleTransitionDuration,
+					delay: subtitleTransitionDelay,
 				}}
 			>
 				Web Designer + Developer
@@ -39,6 +42,7 @@
 					duration: 250,
 					y: 12,
 					delay:
+						initialDelay +
 						subtitleTransitionDuration +
 						titleTransitionDuration,
 				}}
