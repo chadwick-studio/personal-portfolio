@@ -69,7 +69,7 @@
 			width: fit-content;
 		}
 	}
-	@media (max-width: 677px) {
+	@media (max-width: 678px) {
 		.header {
 			flex-direction: column;
 		}
@@ -85,7 +85,9 @@
 	@media (max-width: 767px) {
 		.main {
 			overflow-y: visible;
-			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: start;
+			align-items: start;
 		}
 	}
 	section {

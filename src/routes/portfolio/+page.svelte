@@ -1,6 +1,13 @@
 <script>
-	/* blur before moving onto next photo */
-	import Img from "$components/Img.svelte";
+	import { projects } from "$lib/projects/projects.js";
+	import { blur } from "svelte/transition";
+
+	// Sort projects by year
+	projects.sort((a, b) => {
+		return b.year - a.year;
+	});
+
+	// Set current project
 	let currentProjectIndex = 0;
 	$: currentProject = projects[currentProjectIndex];
 
@@ -23,44 +30,6 @@
 				break;
 		}
 	};
-	let projects = [
-		{
-			title: "Amanda Samimi Art",
-			type: "Portfolio",
-			role: "Design + Development",
-			year: "2023",
-			description:
-				"Virtual painting gallery for the artist Amanda Samimi.",
-			src: "/images/amanda-samimi-website.png",
-			alt: "Website for Amanda Samimi art.",
-			link: "https://amandasamimi.com/",
-		},
-		{
-			title: "Historical Marker Database",
-			type: "Logo Rebranding + Header Redesign",
-			role: "Design",
-			year: "2023",
-			description:
-				"Reconceptualization of <abbr title='Historical Marker Database'>HMdb</abbr>'s logo and redesign of website's header to be more user friendly and accessible.",
-			src: "/images/hmdb-logo.png",
-			alt: "The Historical Marker Database logo. It contains the acronym 'HMDB', with a silhouette of a historical marker placed above the ascendor of the letter H.",
-			link: "https://github.com/chadwick-studio/hmdb-navbar",
-		},
-		{
-			title: "-ette Magazine",
-			type: "CSS Code Refactor",
-			role: "Development",
-			year: "2023",
-			description:
-				"Refactor of CSS code for -ette literary magazine. Organization of code into modules, and utilization of new CSS features like grid and logical properties to facilitate layout production.",
-			src: "/images/ette-review-refactor.png",
-			alt: "Picture of code for -ette Magazine.",
-		},
-	];
-
-	projects.sort((a, b) => {
-		return b.year - a.year;
-	});
 </script>
 
 <svelte:window on:keydown={(e) => changeProjectViaKeyboard(e)} />
@@ -74,10 +43,17 @@
 		<div class="current-project">
 			<div class="project-image">
 				<div class="img-wrapper">
-					<Img
-						src={currentProject.src}
-						alt={currentProject.alt}
-					/>
+					{#key currentProject}
+						<img
+							in:blur={{
+								amount: 5,
+								opacity: 1,
+								duration: 800,
+							}}
+							src={currentProject.src}
+							alt={currentProject.alt}
+						/>
+					{/key}
 				</div>
 				{#if currentProject.link}
 					<h2>
@@ -106,8 +82,8 @@
 								)}
 							style:background-color={currentProject ===
 							project
-								? "#f4ff4a"
-								: "#ff4a9e"}
+								? "#87ff4a"
+								: "transparent"}
 						>
 							<ul>
 								<li>
@@ -300,10 +276,13 @@
 		border-top-right-radius: 20px;
 		border-bottom-right-radius: 20px;
 		border-left: none;
-		padding-left: max(128px, 8vw);
+		padding-left: 128px;
 		padding-right: 64px;
 		padding-block: 32px;
 		margin-block: 32px;
+		> p {
+			max-width: 60ch;
+		}
 	}
 	@media (max-width: 1200px) {
 		.current-project {
@@ -316,12 +295,13 @@
 		position: relative;
 		> .img-wrapper {
 			height: 40vh;
-			width: 100%;
+			max-width: 60ch;
 			overflow: hidden;
 			border: 1px solid black;
 			border-radius: 20px;
 			border-bottom-left-radius: 0;
-			> :global(img) {
+			> img {
+				object-fit: cover;
 				width: 100%;
 				height: 100%;
 			}
@@ -338,6 +318,7 @@
 			border-radius: 8px;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
+			background-color: #87ff4a;
 			> a {
 				&::before {
 					content: "";
@@ -357,16 +338,13 @@
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 		> h3 {
-			background-color: #87ff4a;
 			color: black;
 			font-size: var(--fs-000);
 			line-height: 1;
 			padding: 1em;
 			border-radius: 8px;
 			border: 1px solid black;
-		}
-		> h3:first-child {
-			background-color: #664aff;
+			background-color: #f4ff4a;
 		}
 	}
 </style>
