@@ -43,22 +43,15 @@
 		<div class="current-project-container">
 			{#key currentProject}
 				<div
-					in:fly={{ delay: 500, x: -1000 }}
-					out:fly={{ x: -1000 }}
+					in:fly={{ x: -1000, duration: 500 }}
 					class="current-project"
 				>
 					<div class="project-image">
 						<div class="img-wrapper">
-							{#key currentProject}
-								<img
-									in:blur={{
-										amount: 5,
-										opacity: 1,
-									}}
-									src={currentProject.src}
-									alt={currentProject.alt}
-								/>
-							{/key}
+							<img
+								src={currentProject.src}
+								alt={currentProject.alt}
+							/>
 						</div>
 						{#if currentProject.link}
 							<h2>
