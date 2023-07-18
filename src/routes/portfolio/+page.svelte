@@ -1,6 +1,7 @@
 <script>
 	import { projects } from "$lib/projects/projects.js";
 	import { blur, fly } from "svelte/transition";
+	import { circOut } from "svelte/easing";
 
 	// Sort projects by year
 	projects.sort((a, b) => {
@@ -43,7 +44,11 @@
 		<div class="current-project-container">
 			{#key currentProject}
 				<div
-					in:fly={{ x: -1000, duration: 500 }}
+					in:fly={{
+						x: -1000,
+						duration: 1000,
+						easing: circOut,
+					}}
 					class="current-project"
 				>
 					<div class="project-image">
