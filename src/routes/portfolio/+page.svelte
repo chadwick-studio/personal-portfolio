@@ -1,6 +1,6 @@
 <script>
 	import { projects } from "$lib/projects/projects.js";
-	import { blur } from "svelte/transition";
+	import { blur, fly } from "svelte/transition";
 
 	// Sort projects by year
 	projects.sort((a, b) => {
@@ -40,36 +40,49 @@
 		<p>Checkout his projects!</p>
 	</header>
 	<main class="main">
-		<div class="current-project">
-			<div class="project-image">
-				<div class="img-wrapper">
-					{#key currentProject}
-						<img
-							in:blur={{
-								amount: 5,
-								opacity: 1,
-								duration: 800,
-							}}
-							src={currentProject.src}
-							alt={currentProject.alt}
-						/>
-					{/key}
+		<div class="current-project-container">
+			{#key currentProject}
+				<div
+					in:fly={{ delay: 500, x: -1000 }}
+					out:fly={{ x: -1000 }}
+					class="current-project"
+				>
+					<div class="project-image">
+						<div class="img-wrapper">
+							{#key currentProject}
+								<img
+									in:blur={{
+										amount: 5,
+										opacity: 1,
+									}}
+									src={currentProject.src}
+									alt={currentProject.alt}
+								/>
+							{/key}
+						</div>
+						{#if currentProject.link}
+							<h2>
+								<a
+									href={currentProject.link}
+								>
+									{currentProject.title}
+								</a>
+							</h2>
+						{:else}
+							<h2>
+								{currentProject.title}
+							</h2>
+						{/if}
+					</div>
+					<div class="project-subheading">
+						<h3>{currentProject.type}</h3>
+						<h3>{currentProject.role}</h3>
+					</div>
+					<p>
+						{@html currentProject.description}
+					</p>
 				</div>
-				{#if currentProject.link}
-					<h2>
-						<a href={currentProject.link}>
-							{currentProject.title}
-						</a>
-					</h2>
-				{:else}
-					<h2>{currentProject.title}</h2>
-				{/if}
-			</div>
-			<div class="project-subheading">
-				<h3>{currentProject.type}</h3>
-				<h3>{currentProject.role}</h3>
-			</div>
-			<p>{@html currentProject.description}</p>
+			{/key}
 		</div>
 		<div class="project-list-wrapper">
 			<ul class="project-list">
@@ -113,7 +126,7 @@
 		display: grid;
 		grid-template-rows: auto 1fr;
 		height: 100%;
-		overflow-y: auto;
+		overflow-y: hidden;
 		overflow-x: auto;
 	}
 	@media (max-width: 904px) {
@@ -271,7 +284,10 @@
 			}
 		}
 	}
+	//Current Project
 	.current-project {
+		display: grid;
+		grid-template-rows: 1fr auto auto;
 		border: 2px solid black;
 		border-top-right-radius: 20px;
 		border-bottom-right-radius: 20px;
@@ -292,10 +308,13 @@
 		}
 	}
 	.project-image {
+		display: grid;
+		grid-template-rows: 1fr auto;
 		position: relative;
+		height: 100%;
 		> .img-wrapper {
+			width: 100%;
 			height: 40vh;
-			max-width: 60ch;
 			overflow: hidden;
 			border: 1px solid black;
 			border-radius: 20px;
