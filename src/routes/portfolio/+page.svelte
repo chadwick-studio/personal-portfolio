@@ -1,6 +1,6 @@
 <script>
 	/* blur before moving onto next photo */
-	import Nav from "$components/Nav.svelte";
+	import Img from "$components/Img.svelte";
 	let currentProjectIndex = 0;
 	$: currentProject = projects[currentProjectIndex];
 
@@ -32,7 +32,8 @@
 			description:
 				"Virtual painting gallery for the artist Amanda Samimi.",
 			src: "/images/amanda-samimi-website.png",
-			alt: "Test",
+			alt: "Website for Amanda Samimi art.",
+			link: "https://amandasamimi.com/",
 		},
 		{
 			title: "Historical Marker Database",
@@ -43,6 +44,7 @@
 				"Reconceptualization of <abbr title='Historical Marker Database'>HMdb</abbr>'s logo and redesign of website's header to be more user friendly and accessible.",
 			src: "/images/hmdb-logo.png",
 			alt: "The Historical Marker Database logo. It contains the acronym 'HMDB', with a silhouette of a historical marker placed above the ascendor of the letter H.",
+			link: "https://github.com/chadwick-studio/hmdb-navbar",
 		},
 		{
 			title: "-ette Magazine",
@@ -52,7 +54,7 @@
 			description:
 				"Refactor of CSS code for -ette literary magazine. Organization of code into modules, and utilization of new CSS features like grid and logical properties to facilitate layout production.",
 			src: "/images/ette-review-refactor.png",
-			alt: "Test",
+			alt: "Picture of code for -ette Magazine.",
 		},
 	];
 
@@ -70,11 +72,23 @@
 	</header>
 	<main class="main">
 		<div class="current-project">
-			<img
-				src={currentProject.src}
-				alt={currentProject.alt}
-			/>
-			<h2>{currentProject.title}</h2>
+			<div class="project-image">
+				<div class="img-wrapper">
+					<Img
+						src={currentProject.src}
+						alt={currentProject.alt}
+					/>
+				</div>
+				{#if currentProject.link}
+					<h2>
+						<a href={currentProject.link}>
+							{currentProject.title}
+						</a>
+					</h2>
+				{:else}
+					<h2>{currentProject.title}</h2>
+				{/if}
+			</div>
 			<div class="project-subheading">
 				<h3>{currentProject.type}</h3>
 				<h3>{currentProject.role}</h3>
@@ -159,11 +173,11 @@
 	}
 	.main {
 		display: grid;
-		grid-template: 1fr / 3fr 2fr;
+		grid-template: 1fr / 1fr 40rem;
 		gap: 4rem;
 		position: relative;
 	}
-	@media (max-width: 904px) {
+	@media (max-width: 1200px) {
 		.main {
 			grid-template: 1fr 28rem / 1fr;
 			gap: 0;
@@ -177,7 +191,7 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
-	@media (max-width: 904px) {
+	@media (max-width: 1200px) {
 		.project-list-wrapper {
 			padding: 16px;
 			overflow-x: auto;
@@ -194,7 +208,7 @@
 		position: absolute;
 		width: 110%;
 	}
-	@media (max-width: 904px) {
+	@media (max-width: 1200px) {
 		.project-list {
 			flex-direction: row;
 			gap: 32px;
@@ -241,7 +255,7 @@
 			}
 		}
 	}
-	@media (max-width: 904px) {
+	@media (max-width: 1200px) {
 		.project-item {
 			border: 2px solid black;
 			border-radius: 20px;
@@ -286,47 +300,61 @@
 		border-top-right-radius: 20px;
 		border-bottom-right-radius: 20px;
 		border-left: none;
-		padding-left: 128px;
+		padding-left: max(128px, 8vw);
 		padding-right: 64px;
-		margin-block: 32px;
 		padding-block: 32px;
+		margin-block: 32px;
 	}
-	@media (max-width: 904px) {
+	@media (max-width: 1200px) {
 		.current-project {
 			border: none;
 			padding-inline: 16px;
 			margin: 0;
 		}
 	}
-	img {
-		width: 100%;
-		min-height: 300px;
-		overflow: hidden;
-		object-fit: cover;
-		border: 1px solid black;
-		border-radius: 20px;
-		border-bottom-left-radius: 0;
-	}
-	h2 {
-		font-size: var(--fs-100);
-		font-weight: var(--fw-500);
-		line-height: 1;
-		text-transform: uppercase;
-		padding: 0.75rem;
-		border: 1px solid black;
-		border-top: none;
-		width: fit-content;
-		border-radius: 8px;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-	}
-	p {
-		max-width: 60ch;
+	.project-image {
+		position: relative;
+		> .img-wrapper {
+			height: 40vh;
+			width: 100%;
+			overflow: hidden;
+			border: 1px solid black;
+			border-radius: 20px;
+			border-bottom-left-radius: 0;
+			> :global(img) {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		> h2 {
+			font-size: var(--fs-100);
+			font-weight: var(--fw-500);
+			line-height: 1;
+			text-transform: uppercase;
+			padding: 0.75rem;
+			border: 1px solid black;
+			border-top: none;
+			width: fit-content;
+			border-radius: 8px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			> a {
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
 	}
 	.project-subheading {
+		align-self: start;
 		display: flex;
 		gap: 1em;
-		margin-top: 0.5rem;
+		margin-top: 1rem;
 		margin-bottom: 1rem;
 		> h3 {
 			background-color: #87ff4a;
