@@ -6,7 +6,7 @@ export async function load() {
 		return {
 			projects: data,
 			title: "Portfolio",
-			description: "Check out these projects"
+			description: "Check out these cool projects!"
 		};
 	}
 	return {
