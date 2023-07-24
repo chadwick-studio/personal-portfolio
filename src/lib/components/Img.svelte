@@ -11,6 +11,7 @@
 	alt={image.alt || " "}
 	{...getImageProps({
 		image,
+		maxWidth: 1200,
 	})}
 	data-loaded={loaded}
 	on:load={() => (loaded = true)}
