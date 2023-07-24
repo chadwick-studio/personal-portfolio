@@ -42,7 +42,9 @@
 <main class="main">
 	<div class="current-project">
 		<div class="project-image">
-			<Img image={currentProject.project.image} />
+			<div class="img-wrapper">
+				<Img image={currentProject.project.image} />
+			</div>
 			<h2 class="project-title">
 				{#if currentProject.project.projectURL}
 					<a
@@ -201,10 +203,8 @@
 		container: current-project / size;
 	}
 	@container current-project (width > 0) {
-		.project-image {
-			:global(img) {
-				height: 66.666cqh;
-			}
+		.img-wrapper {
+			height: 66.666cqh;
 		}
 	}
 	@media (width <= 768px) {
@@ -213,12 +213,17 @@
 	}
 	.project-image {
 		width: 100%;
-		> :global(img) {
+		> .img-wrapper {
 			border-radius: 8px;
 			border-bottom-left-radius: 0;
 			width: 100%;
-			object-fit: cover;
 			border: 1px solid black;
+			overflow: hidden;
+		}
+		:global(img) {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 		> h2 {
 			font-size: var(--fs-100);
