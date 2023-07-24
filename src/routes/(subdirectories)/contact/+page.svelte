@@ -55,27 +55,27 @@
 						id="2k"
 						type="radio"
 						name="budget"
-						value="2k-4k"
+						value="1k-3k"
 					/>
-					$2k-$4k
+					$1k-$3k
 				</label>
 				<label for="4k">
 					<input
 						id="design"
 						type="radio"
 						name="budget"
-						value="4k-8k"
+						value="3k-6k"
 					/>
-					$4k-$8k
+					$3k-$6k
 				</label>
 				<label for="8k">
 					<input
 						id="design"
 						type="radio"
 						name="budget"
-						value="8k-12k"
+						value="6k-8k"
 					/>
-					$8k-$12k
+					$6k-$8k
 				</label>
 
 				<label for="12k">
@@ -83,9 +83,9 @@
 						id="design"
 						type="radio"
 						name="budget"
-						value="12k+"
+						value="10k+"
 					/>
-					$12k+
+					$10k+
 				</label>
 			</div>
 		</fieldset>
