@@ -1,65 +1,50 @@
 <script>
-	import { fly } from "svelte/transition";
 	import { onMount } from "svelte";
-	let isLoaded = false;
-	let initialDelay = 100;
-	let titleTransitionDuration = 500;
-	let subtitleTransitionDelay = initialDelay + titleTransitionDuration;
-	let subtitleTransitionDuration = 250;
+	import { timeline } from "motion";
+
 	onMount(() => {
-		isLoaded = true;
+		const sequence = [
+			[
+				".title",
+				{ y: [48, 0], opacity: [0, 1] },
+				{ duration: 0.75 },
+				{ easing: "ease-in" },
+			],
+			[
+				".subtitle",
+				{ y: [24, 0], opacity: [0, 1] },
+				{ duration: 0.5 },
+				{ easing: "ease-in" },
+			],
+			[
+				".hero",
+				{ y: [24, 0], opacity: [0, 1] },
+				{ duration: 0.5 },
+				{ easing: "ease-in" },
+			],
+		];
+		timeline(sequence);
 	});
 </script>
 
 <div class="content">
 	<header class="header">
-		{#if isLoaded}
-			<h1
-				in:fly={{
-					duration: titleTransitionDuration,
-					y: 12,
-					delay: initialDelay,
-				}}
-			>
-				Chadwick Macmillan
-			</h1>
-			<p
-				in:fly={{
-					duration: subtitleTransitionDuration,
-					y: 12,
-					delay: subtitleTransitionDelay,
-				}}
-			>
-				Web Designer + Developer
-			</p>
-		{/if}
+		<h1 class="title">Chadwick Macmillan</h1>
+		<p class="subtitle">Web Designer + Developer</p>
 	</header>
 	<main class="main">
-		{#if isLoaded}
-			<section
-				in:fly={{
-					duration: 250,
-					y: 12,
-					delay:
-						initialDelay +
-						subtitleTransitionDuration +
-						titleTransitionDuration,
-				}}
-				class="hero"
-			>
-				<p>
-					I build fun, creative, and engaging web
-					experiences.
-				</p>
-				<p>
-					Inquiring about a project? Send me an
-					email at <a
-						href="mailto:chadwick@chadwick.studio"
-						>chadwick@chadwick.studio</a
-					> or view my contact page :-)
-				</p>
-			</section>
-		{/if}
+		<section class="hero">
+			<p>
+				I build fun, creative, and engaging web
+				experiences.
+			</p>
+			<p>
+				Inquiring about a project? Send me an email at <a
+					href="mailto:chadwick@chadwick.studio"
+					>chadwick@chadwick.studio</a
+				> or view my contact page :-)
+			</p>
+		</section>
 	</main>
 </div>
 
@@ -75,6 +60,7 @@
 		white-space: nowrap;
 		text-transform: uppercase;
 		> h1 {
+			opacity: 0;
 			font-family: "Pilowlava";
 			font-size: clamp(
 				var(--fs-400),
@@ -83,6 +69,7 @@
 			); // 650px to 1400px
 		}
 		> p {
+			opacity: 0;
 			font-family: "Poppins";
 			font-weight: 300;
 			font-size: clamp(
@@ -101,6 +88,7 @@
 		}
 	}
 	.hero {
+		opacity: 0;
 		border: 1px solid black;
 		padding: 0.5rem;
 		width: fit-content;
