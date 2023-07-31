@@ -2,8 +2,8 @@
 	<section>
 		<p>
 			Chadwick Macmillan is a NYC-based web designer and
-			developer. Organizing the intersection novel design and
-			optimized development, he crafts unique, creative
+			developer. Organizing the intersection of novel design
+			and optimized development, he crafts unique, creative
 			websites and applications for businesses, artists, and
 			innovators.
 		</p>
