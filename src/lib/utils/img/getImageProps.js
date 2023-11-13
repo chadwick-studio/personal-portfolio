@@ -62,7 +62,7 @@ export default function getImageProps({
       ...baseSizes,
       ...baseSizes.map((size) => size * 2),
       ...baseSizes.map((size) => size * 3),
-    ])
+    ]),
   )
     .sort((a, b) => a - b) // Lowest to highest
     .filter(
@@ -72,7 +72,7 @@ export default function getImageProps({
         // quality for an image. Sanity's CDN won't scale the image above its limits.
         size <= imageDimensions.width * 1.1 &&
         // Exclude those larger than maxWidth's retina (x3)
-        size <= maxWidth * 3
+        size <= maxWidth * 3,
     )
 
     // Exclude those with a value difference to their following size smaller than `minimumWidthStep`
@@ -88,11 +88,11 @@ export default function getImageProps({
 
   return {
     // Use the original image as the `src` for the <img>
-    src: builder.width(maxWidth).url(),
+    src: builder.width(maxWidth).format("webp").url(),
 
     // Build a `{URL} {SIZE}w, ...` string for the srcset
     srcset: retinaSizes
-      .map((size) => `${builder.width(size).url()} ${size}w`)
+      .map((size) => `${builder.width(size).format("webp").url()} ${size}w`)
       .join(", "),
     sizes:
       maxWidth === "100vw"

@@ -11,7 +11,6 @@
 	alt={image.alt || " "}
 	{...getImageProps({
 		image,
-		maxWidth: 1200,
 	})}
 	data-loaded={loaded}
 	on:load={() => (loaded = true)}
@@ -20,9 +19,5 @@
 <style>
 	img {
 		height: auto;
-		transition: 500ms opacity ease-in;
-		&[data-loaded="false"] {
-			opacity: 0;
-		}
 	}
 </style>

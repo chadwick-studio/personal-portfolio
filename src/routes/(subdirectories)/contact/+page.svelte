@@ -1,157 +1,175 @@
-<main class="main">
+<div class="page">
 	<form
-		class="contact-form"
+		class="contact-form | grid"
 		name="contact"
 		method="post"
 		netlify
 		netlify-honeypot="bot-field"
 	>
 		<input type="hidden" name="form-name" value="contact" />
-		<label for="name">
-			Name *
+		<section class="name">
+			<label for="name"> Name * </label>
 			<input id="name" type="text" name="name" required />
-		</label>
-		<label for="email">
-			Email *
+		</section>
+		<section class="email">
+			<label for="email"> Email * </label>
 			<input id="email" type="email" name="email" required />
-		</label>
-		<fieldset>
-			<legend> What type of services do you need? * </legend>
-			<div class="inputs">
-				<label for="development">
-					<input
-						id="development"
-						type="checkbox"
-						name="services"
-						value="development"
-					/>
-					Development
-				</label>
-				<label for="design">
-					<input
-						id="design"
-						type="checkbox"
-						name="services"
-						value="design"
-					/>
-					Design
-				</label>
-				<label for="design">
-					<input
-						id="design"
-						type="checkbox"
-						name="services"
-						value="other"
-					/>
-					Other
-				</label>
-			</div>
-		</fieldset>
-		<fieldset>
-			<legend> What's your budget? (optional) </legend>
-			<div class="inputs">
-				<label for="2k">
-					<input
-						id="2k"
-						type="radio"
-						name="budget"
-						value="1k-3k"
-					/>
-					$1k-$3k
-				</label>
-				<label for="4k">
-					<input
-						id="design"
-						type="radio"
-						name="budget"
-						value="3k-6k"
-					/>
-					$3k-$6k
-				</label>
-				<label for="8k">
-					<input
-						id="design"
-						type="radio"
-						name="budget"
-						value="6k-8k"
-					/>
-					$6k-$8k
-				</label>
-
-				<label for="12k">
-					<input
-						id="design"
-						type="radio"
-						name="budget"
-						value="10k+"
-					/>
-					$10k+
-				</label>
-			</div>
-		</fieldset>
-		<label for="publish-date">
-			Desired Completion Date (optional)
+		</section>
+		<section class="services">
+			<fieldset>
+				<legend>
+					What type of services do you need? *
+				</legend>
+				<div class="inputs">
+					<section class="development box">
+						<input
+							id="development"
+							type="checkbox"
+							name="services"
+							value="development"
+						/>
+						<label for="development">
+							Development
+						</label>
+					</section>
+					<section class="design box">
+						<input
+							id="design"
+							type="checkbox"
+							name="services"
+							value="design"
+						/>
+						<label for="design">
+							Design
+						</label>
+					</section>
+					<section class="other box">
+						<input
+							id="other"
+							type="checkbox"
+							name="services"
+							value="other"
+						/>
+						<label for="other">
+							Other
+						</label>
+					</section>
+				</div>
+			</fieldset>
+		</section>
+		<section class="budget">
+			<fieldset>
+				<legend>
+					What's your budget? (optional)
+				</legend>
+				<div class="inputs">
+					<section class="2k box">
+						<input
+							id="2k"
+							type="radio"
+							name="budget"
+							value="1k-3k"
+						/>
+						<label for="2k">
+							$1k-$3k
+						</label>
+					</section>
+					<section class="4k box">
+						<input
+							id="design"
+							type="radio"
+							name="budget"
+							value="3k-6k"
+						/>
+						<label for="4k">
+							$3k-$6k
+						</label>
+					</section>
+					<section class="8k box">
+						<input
+							id="design"
+							type="radio"
+							name="budget"
+							value="6k-8k"
+						/>
+						<label for="8k">
+							$6k-$8k
+						</label>
+					</section>
+					<section class="12k box">
+						<input
+							id="design"
+							type="radio"
+							name="budget"
+							value="10k+"
+						/>
+						<label for="12k"> $10k+ </label>
+					</section>
+				</div>
+			</fieldset>
+		</section>
+		<section class="publish-date">
+			<label for="publish-date">
+				Desired Completion Date (optional)
+			</label>
 			<input
 				id="publish-date"
 				type="date"
 				name="publish-date"
 			/>
-		</label>
-		<label for="message">
-			Leave a message! *
+		</section>
+		<section class="message">
+			<label for="message"> Leave a message! * </label>
 			<textarea
 				id="message"
 				name="message"
 				rows="10"
 				required
 			/>
-		</label>
+		</section>
 		<button type="submit">Send</button>
 		<p>* = required</p>
 	</form>
-</main>
+</div>
 
 <style lang="scss">
-	.main {
-		padding-block: 32px;
-		padding-inline: 32px;
+	.page {
+		padding-block: 2rem;
+		padding-inline: 1rem;
+	}
+	@media (min-width: 768px) {
+		.page {
+			padding-left: 2rem;
+		}
 	}
 	.contact-form {
 		border: 2px solid black;
-		border-radius: 20px;
-		padding: 32px;
-		max-width: 768px;
+		padding: 2rem;
+		max-width: 696px;
+		> section + section {
+			margin-top: 1rem;
+		}
+		> p {
+			margin-top: 1rem;
+		}
 	}
 	p {
 		line-height: 1.5;
 		max-width: 60ch;
 	}
-	.contact-form {
-		display: grid;
-		> p:last-child {
-			margin-top: 1rem;
-		}
-	}
-	input:is([type="text"], [type="email"]) {
-		width: 100%;
-	}
-	label {
+	section {
 		display: grid;
 	}
-	.inputs {
-		display: flex;
-		gap: 1rem;
-	}
-	@media (max-width: 560px) {
-		.inputs {
-			flex-direction: column;
-			gap: 0;
-		}
-	}
-	fieldset > .inputs > label {
+	.box {
 		grid-template-columns: 1em auto;
 		gap: 0.5em;
 		align-items: center;
+	}
+	input,
+	textarea {
+		border: 1px solid black;
+		padding: 0.5rem;
+		width: 100%;
 	}
 	input:is([type="radio"], [type="checkbox"]) {
 		display: grid;
@@ -161,7 +179,7 @@
 		width: 1em;
 		height: 1em;
 		border: 1px solid currentColor;
-		transform: translateY(-0.075em);
+		transform: translateY(-0.125em);
 		&::before {
 			content: "";
 			width: 0.75em;
@@ -181,18 +199,9 @@
 			background-color: #ff4a9e;
 		}
 	}
-	label > input {
+	section > input {
 		border: 1px solid black;
 		padding: 0.5rem;
-	}
-	.contact-form > label + label {
-		margin-top: 1rem;
-	}
-	.contact-form > fieldset + label {
-		margin-top: 1rem;
-	}
-	fieldset {
-		margin-top: 1rem;
 	}
 	button {
 		margin-top: 1rem;
@@ -205,9 +214,5 @@
 		&:active {
 			transform: translateY(1px);
 		}
-	}
-	textarea {
-		border: 1px solid black;
-		padding: 0.5rem;
 	}
 </style>

@@ -1,4 +1,4 @@
-import { sanityClient } from "$utils/sanityClient";
+import { sanityClient } from "$utilities/sanityClient";
 
 export async function load() {
 	const data = await sanityClient.fetch(`*[_type == "projects"]`);

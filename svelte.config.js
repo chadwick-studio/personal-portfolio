@@ -8,7 +8,7 @@ const config = {
 		alias: {
 			// these are the aliases and paths to them
 			$components: "./src/lib/components",
-			$utils: "./src/lib/utils",
+			$utilities: "./src/lib/utils",
 		},
 	},
 

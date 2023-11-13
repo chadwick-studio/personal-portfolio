@@ -1,7 +1,5 @@
 <script>
-	import { throttle } from "$utils/throttle.js";
-
-	//Calc cursor coords
+	// Calculate cursor coords
 	const coords = { x: -200, y: -200 };
 	let { x, y } = coords;
 	const getCursorCoords = (e) => {
@@ -9,23 +7,23 @@
 		y = e.clientY;
 	};
 
-	//Throttle mouseover function
-	const throttleCursor = throttle(getCursorCoords, 10);
+	let mouseDown = 0;
 </script>
 
-<svelte:document on:mousemove={throttleCursor} />
+<svelte:document
+	on:mousemove={getCursorCoords}
+	on:mousedown={() => mouseDown++}
+	on:mouseup={() => mouseDown--}
+/>
 <div class="cursor-wrapper">
-	<svg
+	<img
+		src="/images/pixel_cursor.png"
+		alt=""
 		class="cursor"
-		width="12px"
-		height="12px"
-		style="--xCoords:{x}; --yCoords:{y};"
-		version="1.1"
-		viewBox="0 0 12 12"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<circle cx="6" cy="6" r="6" />
-	</svg>
+		style="--xCoords:{x}; --yCoords:{y}; --rotate:{mouseDown === 1
+			? '-20deg'
+			: '0deg'}"
+	/>
 </div>
 
 <style lang="scss">
@@ -39,13 +37,14 @@
 		pointer-events: none;
 	}
 	.cursor {
-		transform: translate(-50%, -50%)
-			translate3d(
-				calc(var(--xCoords) * 1px),
+		aspect-ratio: 1;
+		width: 64px;
+		transform: translate3d(
+				calc(var(--xCoords) * 1px - 25px),
 				calc(var(--yCoords) * 1px),
 				0
-			);
-		transition: transform 100ms ease-out;
+			)
+			rotateZ(var(--rotate));
 	}
 	@media (hover: none) {
 		.cursor-wrapper {

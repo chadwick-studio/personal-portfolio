@@ -1,0 +1,18 @@
+{
+  "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "$components": ["src/lib/components"],
+      "$components/*": ["src/lib/components/*"],
+      "$_components": ["src/routes/_components"],
+      "$_components/*": ["src/routes/_components/*"],
+      "$utilities": ["src/lib/utilities"],
+      "$utilities/*": ["src/lib/utilities/*"],
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"]
+    }
+  },
+  "include": ["./src/**/*.d.ts", "./src/**/*.js", "./src/**/*.svelte"]
+}

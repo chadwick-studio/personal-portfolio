@@ -1,5 +1,5 @@
-<main class="main">
-	<section>
+<div class="page | flex">
+	<section class="bio">
 		<p>
 			Chadwick Macmillan is a NYC-based web designer and
 			developer. Organizing the intersection of novel design
@@ -15,7 +15,7 @@
 			visitors.
 		</p>
 	</section>
-	<section>
+	<section class="btn">
 		<a href="/contact">Get in touch</a>
 		<svg
 			version="1.1"
@@ -28,28 +28,27 @@
 			/>
 		</svg>
 	</section>
-</main>
+</div>
 
 <style lang="scss">
-	.main {
-		display: flex;
-		justify-content: space-between;
-		align-items: end;
+	.page {
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
 		gap: 2rem;
-		padding-block: 32px;
-		padding-inline: 32px;
+		padding-inline: 1rem;
+		padding-block: 2rem;
 	}
-	@media (max-width: 767px) {
-		.main {
-			flex-direction: column;
-			justify-content: start;
-			align-items: start;
+	@media (min-width: 768px) {
+		.page {
+			padding-left: 2rem;
 		}
 	}
 	section {
-		border: 1px solid black;
-		padding: 1rem;
-		width: fit-content;
+		border: 2px solid black;
+		padding: 2rem;
+		width: 100%;
+		max-width: 70ch;
 		> p + p {
 			margin-top: 1rem;
 		}
@@ -63,9 +62,10 @@
 			gap: 0.5em;
 		}
 	}
-	p {
-		line-height: 1.5;
-		max-width: 60ch;
+	.btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	a[href="/contact"]:is(:hover, :focus-visible) {
 		text-decoration-line: underline;

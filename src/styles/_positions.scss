@@ -1,0 +1,79 @@
+.relative {
+  position: relative;
+}
+.static {
+  position: static;
+}
+.absolute {
+  position: absolute;
+}
+.sticky {
+  position: sticky;
+}
+.fixed {
+  position: fixed;
+}
+.isolate {
+  isolation: isolate;
+}
+
+.container-md {
+  width: min(100% - 4rem, 80rem);
+}
+.mi-auto {
+  margin-inline: auto;
+}
+
+// button
+
+.button {
+  color: var(--button-color, var(--primary));
+  background-color: var(--button-bg, var(--accent));
+}
+
+.button:where(:has(.icon)) {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.button:where(:has(.inclusively-hidden)) {
+  border-radius: 50%;
+  padding: 0.5em;
+}
+
+.button:where(:not(:has(.icon))) {
+  text-align: center;
+  min-inline-size: 10ch;
+}
+
+.button:where(:not(:has(.inclusively-hidden))) {
+  padding: var(--button-padding, 0.35em 1em);
+  border-radius: 0;
+}
+
+.button:hover {
+  --button-bg: var(--accent--alt);
+  --button-color: var(--primary);
+}
+
+.button:focus-visible {
+  --outline-style: dashed;
+  --outline-offset: -0.35em;
+}
+
+:root {
+  --padding-sm: clamp(1rem, 3%, 1.5rem);
+  --padding-md: clamp(1.5rem, 6%, 3rem);
+  --padding-lg: clamp(3rem, 12%, 6rem);
+}
+
+.block-flow {
+  margin-block-start: min(4rem, 8vh);
+}
+
+:root {
+  --layout-gap-sm: clamp(1rem,   3vmax, 1.5rem)
+  --layout-gap-md: clamp(1.5rem, 6vmax,   3rem);
+  --layout-gap-lg: clamp(3rem,   8vmax,   4rem);
+}

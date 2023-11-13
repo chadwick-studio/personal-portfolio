@@ -2,31 +2,47 @@
 	import "../app.scss";
 	import Nav from "$components/Nav.svelte";
 	import Cursor from "$components/Cursor.svelte";
-	import { onMount } from "svelte";
+	let resizeTimer;
+	let areAnimationsStopped = false;
+	const handleResize = () => {
+		areAnimationsStopped = true;
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(() => {
+			areAnimationsStopped = false;
+		}, 400);
+	};
 </script>
 
-<div class="page-layout">
+<svelte:window on:resize={handleResize} />
+<div
+	class:resize-animation-stopper={areAnimationsStopped}
+	class="layout | grid relative isolate"
+>
 	<Nav />
 	<slot />
 </div>
 <Cursor />
 
 <style lang="scss">
-	.page-layout {
-		display: grid;
-		grid-template: 1fr / 3rem 1fr;
-		height: 100svh;
-		position: relative;
+	:global(*) {
+		cursor: none;
+	}
+	.resize-animation-stopper :global(*) {
+		animation: none !important;
+		transition: none !important;
+	}
+	.layout {
+		font-family: "Poppins", system-ui, -apple-system,
+			BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+			Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+		grid-template: auto 1fr / 1fr;
+		height: 100vh;
 		z-index: 1;
-		isolation: isolate;
-		overflow: hidden;
+		background-color: var(--bg-primary);
 	}
-	@media (max-width: 767px) {
-		.page-layout {
-			grid-template: 3rem 1fr / 1fr;
+	@media (min-width: 768px) {
+		.layout {
+			grid-template: 1fr / auto 1fr;
 		}
-	}
-	:global(body) {
-		background-color: var(--main-background);
 	}
 </style>
