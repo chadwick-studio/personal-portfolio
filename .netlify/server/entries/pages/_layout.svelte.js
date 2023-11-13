@@ -17,16 +17,19 @@ const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     { name: "About", pathname: "/about" },
     { name: "Contact", pathname: "/contact" }
   ];
-  let isNavVisible = false;
+  let isNavVisible = true;
   let height;
   $$result.css.add(css$2);
   $$unsubscribe_page();
-  return `<header class="nav-container svelte-1qeg95n"${add_styles({ "--nav-height": height + "px" })}><div class="nav-content | inline-flex uppercase svelte-1qeg95n">${`${`<nav id="nav-links-container" class="nav-links-container svelte-1qeg95n" aria-label="Main"><ul class="nav-links | flex svelte-1qeg95n">${each(links, (link) => {
-    return `<li class="svelte-1qeg95n"><a class="nav-link | inline-flex svelte-1qeg95n"${add_attribute("href", link.pathname, 0)}${add_attribute("aria-current", $page.url.pathname === link.pathname ? "page" : false, 0)}><span class="svelte-1qeg95n">${escape(link.name)}</span></a>
+  return `<header class="nav-container svelte-1qeg95n"${add_styles({ "--nav-height": height + "px" })}><div class="nav-content | inline-flex uppercase svelte-1qeg95n">${`<nav id="nav-links-container" class="nav-links-container svelte-1qeg95n" aria-label="Main"${add_styles({
+    "visibility": "visible"
+  })}><ul class="nav-links | flex svelte-1qeg95n">${each(links, (link) => {
+    return `<li class="svelte-1qeg95n"><a class="nav-link | inline-flex svelte-1qeg95n"${add_attribute("href", link.pathname, 0)}${add_attribute("aria-current", $page.url.pathname === link.pathname ? "page" : false, 0)}><span class="svelte-1qeg95n">${escape(link.name)}</span>
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="262.75 285.12 652.15 652.13" width="1em" height="1em"><g><path d="m411.07 348.1h396.43l-544.74 544.43 44.711 44.711 544.43-544.74v396.43h62.977v-503.81h-503.81z"></path></g></svg></a>
 						</li>`;
-  })}</ul></nav>`}`}
-		<button class="nav-toggler | inline-flex svelte-1qeg95n"${add_attribute("aria-expanded", isNavVisible, 0)} aria-controls="nav"><span>${escape("Menu")}</span>
-			<svg version="1.1" width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="nav-icon svelte-1qeg95n" title="Menu Icon"><g><g class="left-circles"><circle cx="6"${add_attribute("cy", 6, 0)} r="4"></circle><circle cx="6" cy="16" r="4"></circle><circle cx="6"${add_attribute("cy", 26, 0)} r="4"></circle></g><g class="center-circles"><circle cx="16" cy="6" r="4"></circle><circle cx="16" cy="26" r="4"></circle></g><g class="right-circles"><circle cx="26"${add_attribute("cy", 6, 0)} r="4"></circle><circle cx="26" cy="16" r="4"></circle><circle cx="26"${add_attribute("cy", 26, 0)} r="4"></circle></g></g></svg></button>
+  })}</ul></nav>`}
+		<button class="nav-toggler | inline-flex svelte-1qeg95n"${add_attribute("aria-expanded", isNavVisible, 0)} aria-controls="nav"><span>${escape("Close")}</span>
+			<svg version="1.1" width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="nav-icon svelte-1qeg95n" title="Menu Icon"><g><g class="left-circles"><circle cx="6"${add_attribute("cy", 16, 0)} r="4"></circle><circle cx="6" cy="16" r="4"></circle><circle cx="6"${add_attribute("cy", 16, 0)} r="4"></circle></g><g class="center-circles"><circle cx="16" cy="6" r="4"></circle><circle cx="16" cy="26" r="4"></circle></g><g class="right-circles"><circle cx="26"${add_attribute("cy", 16, 0)} r="4"></circle><circle cx="26" cy="16" r="4"></circle><circle cx="26"${add_attribute("cy", 16, 0)} r="4"></circle></g></g></svg></button>
 		<a class="home-link svelte-1qeg95n" href="/"${add_attribute("aria-current", $page.url.pathname === "/" ? "page" : false, 0)}><h1 class="svelte-1qeg95n">Chadwick Macmillan</h1></a></div>
 </header>`;
 });
