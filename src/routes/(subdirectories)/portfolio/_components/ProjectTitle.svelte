@@ -26,15 +26,11 @@
 		background-color: var(--secondary);
 		padding: 0.5em;
 		border: 2px solid black;
+		border-left: none;
 		border-bottom: none;
 		position: absolute;
 		bottom: 0;
-		left: 1rem;
-	}
-	@media (min-width: 768px) {
-		.project-title {
-			left: 2rem;
-		}
+		left: 0;
 	}
 	.project-link {
 		gap: 0.5em;
