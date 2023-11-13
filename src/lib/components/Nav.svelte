@@ -23,19 +23,15 @@
 		if (mql.matches) {
 			isMobile = false;
 			isNavVisible = true;
-			console.log("Higher than 768px");
 		} else {
 			isMobile = true;
-			console.log("Lower than 768px");
 		}
 		mql.addEventListener("change", (e) => {
 			if (e.matches) {
 				isMobile = false;
 				isNavVisible = true;
-				console.log("Higher than 768px");
 			} else {
 				isMobile = true;
-				console.log("Lower than 768px");
 			}
 		});
 	});
@@ -311,6 +307,9 @@
 			&:hover::before {
 				height: 100%;
 				transition: 200ms ease;
+			}
+			svg {
+				display: none;
 			}
 		}
 	}
