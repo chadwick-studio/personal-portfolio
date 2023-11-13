@@ -9,7 +9,7 @@
 		{ name: "Contact", pathname: "/contact" },
 	];
 
-	let isNavVisible = false;
+	let isNavVisible = true;
 
 	const toggleNav = () => {
 		isNavVisible = !isNavVisible;
@@ -22,6 +22,7 @@
 		let mql = window.matchMedia("(min-width: 768px)");
 		if (mql.matches) {
 			isMobile = false;
+			isNavVisible = true;
 			console.log("Higher than 768px");
 		} else {
 			isMobile = true;
@@ -30,6 +31,7 @@
 		mql.addEventListener("change", (e) => {
 			if (e.matches) {
 				isMobile = false;
+				isNavVisible = true;
 				console.log("Higher than 768px");
 			} else {
 				isMobile = true;
@@ -45,7 +47,7 @@
 	style:--nav-height={height + "px"}
 >
 	<div class="nav-content | inline-flex uppercase">
-		{#if isMobile && isNavVisible}
+		{#if isNavVisible}
 			<nav
 				id="nav-links-container"
 				class="nav-links-container"
@@ -54,10 +56,10 @@
 					? "visible"
 					: "hidden"}
 				in:slide={{
-					duration: 400,
+					duration: isMobile ? 400 : 0,
 				}}
 				out:slide={{
-					duration: 300,
+					duration: isMobile ? 300 : 0,
 				}}
 			>
 				<ul class="nav-links | flex">
@@ -90,33 +92,6 @@
 										/>
 									</g>
 								</svg>
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-		{:else if !isMobile}
-			<nav
-				id="nav-links-container"
-				class="nav-links-container"
-				aria-label="Main"
-			>
-				<ul class="nav-links | flex">
-					{#each links as link}
-						<li>
-							<a
-								class="nav-link | inline-flex"
-								href={link.pathname}
-								aria-current={$page
-									.url
-									.pathname ===
-								link.pathname
-									? "page"
-									: false}
-							>
-								<span
-									>{link.name}</span
-								>
 							</a>
 						</li>
 					{/each}
