@@ -9,14 +9,15 @@
 		{ name: "Contact", pathname: "/contact" },
 	];
 
-	let isNavVisible = true;
+	let isNavVisible;
+	let isMobile;
+	let height;
 
 	const toggleNav = () => {
-		isNavVisible = !isNavVisible;
+		if (isMobile) {
+			isNavVisible = !isNavVisible;
+		}
 	};
-
-	let height;
-	let isMobile = false;
 
 	onMount(() => {
 		let mql = window.matchMedia("(min-width: 768px)");
@@ -24,6 +25,7 @@
 			isMobile = false;
 			isNavVisible = true;
 		} else {
+			isNavVisible = false;
 			isMobile = true;
 		}
 		mql.addEventListener("change", (e) => {
@@ -32,6 +34,7 @@
 				isNavVisible = true;
 			} else {
 				isMobile = true;
+				isNavVisible = false;
 			}
 		});
 	});
@@ -43,62 +46,49 @@
 	style:--nav-height={height + "px"}
 >
 	<div class="nav-content | inline-flex uppercase">
-		{#if isNavVisible}
-			<nav
-				id="nav-links-container"
-				class="nav-links-container"
-				aria-label="Main"
-				style:visibility={isNavVisible
-					? "visible"
-					: "hidden"}
-				in:slide={{
-					duration: isMobile ? 400 : 0,
-				}}
-				out:slide={{
-					duration: isMobile ? 300 : 0,
-				}}
-			>
-				<ul class="nav-links | flex">
-					{#each links as link}
-						<li>
-							<a
-								class="nav-link | inline-flex"
-								href={link.pathname}
-								aria-current={$page
-									.url
-									.pathname ===
-								link.pathname
-									? "page"
-									: false}
-								on:click={toggleNav}
+		<nav
+			id="nav-links-container"
+			class="nav-links-container"
+			aria-label="Main"
+			data-visible={isNavVisible}
+		>
+			<ul class="nav-links | flex">
+				{#each links as link}
+					<li>
+						<a
+							class="nav-link | inline-flex"
+							href={link.pathname}
+							aria-current={$page.url
+								.pathname ===
+							link.pathname
+								? "page"
+								: false}
+							on:click={toggleNav}
+						>
+							<span>{link.name}</span>
+							<svg
+								version="1.1"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="262.75 285.12 652.15 652.13"
+								width="1em"
+								height="1em"
 							>
-								<span
-									>{link.name}</span
-								>
-								<svg
-									version="1.1"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="262.75 285.12 652.15 652.13"
-									width="1em"
-									height="1em"
-								>
-									<g>
-										<path
-											d="m411.07 348.1h396.43l-544.74 544.43 44.711 44.711 544.43-544.74v396.43h62.977v-503.81h-503.81z"
-										/>
-									</g>
-								</svg>
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-		{/if}
+								<g>
+									<path
+										d="m411.07 348.1h396.43l-544.74 544.43 44.711 44.711 544.43-544.74v396.43h62.977v-503.81h-503.81z"
+									/>
+								</g>
+							</svg>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</nav>
 		<button
 			class="nav-toggler | inline-flex"
 			aria-expanded={isNavVisible}
 			aria-controls="nav"
-			on:click={() => toggleNav()}
+			on:click={toggleNav}
 		>
 			<span>{isNavVisible ? "Close" : "Menu"}</span>
 			<svg
@@ -246,17 +236,24 @@
 		padding-inline: 1rem;
 		padding-block: 1rem;
 		border-bottom: 2px solid black;
-		visibility: hidden;
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: transform 300ms ease-out;
+		&[data-visible="true"] {
+			transform: scaleY(1);
+			transition: transform 400ms ease-out;
+		}
 	}
 
 	@media (min-width: 768px) {
 		.nav-links-container {
 			justify-content: start;
+			align-items: center;
 			position: static;
 			height: 100%;
 			padding: 0;
 			border-bottom: none;
-			visibility: visible;
+			transform: scaleY(1);
 		}
 	}
 	.nav-links {
@@ -287,7 +284,7 @@
 		.nav-link {
 			font-size: 1rem;
 			font-weight: normal;
-			writing-mode: vertical-lr;
+			writing-mode: vertical-rl;
 			rotate: -180deg;
 			position: relative;
 			&[aria-current="page"]::before {
